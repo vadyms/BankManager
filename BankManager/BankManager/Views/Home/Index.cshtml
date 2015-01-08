@@ -1,0 +1,31 @@
+﻿@model BankManager.Models.UserModel
+
+@{    
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="center">
+        Please enter your credentials:
+        <br/>
+        @Html.LabelFor(m => m.Login,"Login:")
+        @Html.TextBoxFor(m => m.Login)
+        @Html.ValidationMessageFor(m=>m.Login)
+        <br/>
+        @Html.LabelFor(m => m.Password,"Password:")
+        @Html.TextBoxFor(m => m.Password)
+        @Html.ValidationMessageFor(m=>m.Password)
+        <br/>
+        @Html.CheckBoxFor( m => m.RememberMe)
+        @Html.LabelFor(m => m.RememberMe,"RememberMe")
+        <br/>
+        <input value="Submit" input type="submit"/? />
+        <br/>
+        @Html.ValidationSummary()
+        @Html.RouteLink( "Register new account","")
+    </div>
+}
