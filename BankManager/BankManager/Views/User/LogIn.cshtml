@@ -1,6 +1,32 @@
-﻿@{
+﻿@model BankManager.Models.UserModel
+@{
     ViewBag.Title = "LogIn";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>LogIn</h2>
+@using (Html.BeginForm())
+{
+    <div class="center">
+        Please enter your credentials:
+        <br/>
+        @Html.LabelFor(m => m.Login,"Login:")
+        @Html.TextBoxFor(m => m.Login)
+        @Html.ValidationMessageFor(m=>m.Login)
+        <br/>
+        @Html.LabelFor(m => m.Password,"Password:")
+        @Html.PasswordFor(m => m.Password)
+        @Html.ValidationMessageFor(m=>m.Password)
+        <br/>
+        @Html.CheckBoxFor( m => m.RememberMe)
+        @Html.LabelFor(m => m.RememberMe,"RememberMe")
+        <br/>
+        <input value="Submit" input type="submit"/? />
+        <br/>
+        @Html.ValidationSummary(true,"Login failed. Check your login details.")
+        
+        @Html.ActionLink("Reg","Registration","")
+        
+        @Html.ActionLink("Register new account","..\\Registration")
+    </div>
+}

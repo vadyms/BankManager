@@ -1,0 +1,37 @@
+﻿@model BankManager.Models.RegModel
+@{
+    ViewBag.Title = "Registration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Registration</h2>
+@using (Html.BeginForm())
+{
+    <div class="center">
+        Please type next data:
+        <br/>
+        @Html.LabelFor(m => m.Login,"Login:")
+        @Html.TextBoxFor(m => m.Login)
+        @Html.ValidationMessageFor(m=>m.Login)
+        <br/>
+        @Html.LabelFor(m => m.Password,"Password:")
+        @Html.PasswordFor(m => m.Password)
+        @Html.ValidationMessageFor(m=>m.Password)
+        <br/>
+        @Html.LabelFor(m => m.RepeatPassword,"Repeat Password:")
+        @Html.PasswordFor(m => m.RepeatPassword)
+        @Html.ValidationMessageFor(m=>m.RepeatPassword)
+        <br/>
+        @Html.LabelFor(m => m.Email,"Email:")
+        @Html.TextBoxFor(m => m.Email)
+        @Html.ValidationMessageFor(m=>m.Email)
+        <br/>
+        @Html.LabelFor(m => m.Address,"Address:")
+        @Html.TextBoxFor(m => m.Address)
+        @Html.ValidationMessageFor(m=>m.Address)
+        <br/>
+        <input value="Submit" input type="submit"/? />
+        <br/>
+        @Html.ValidationSummary(true,"Registration failed. Check your login details.")
+    </div>
+}

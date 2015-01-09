@@ -10,15 +10,14 @@ namespace BankManager.Models
     {
         [Required]
         [StringLength(150)]
+        [Display( Name = "Login:" )]
         public string Login { get; set; }
         
         [Required]
         [DataType(DataType.Password)]
-        [StringLength(20,MinimumLength=6)]
+        //[StringLength(20,MinimumLength=1)]
+        [Display(Name="Password")]
         public string Password { get; set; }
-
-        [Required]
-        public string Email { get; set; }
         
         [Required]
         public bool RememberMe { get; set; }

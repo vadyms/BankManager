@@ -15,6 +15,17 @@
             Welcome to online banking system
     </div>
 
+    @if (Request.IsAuthenticated)
+    {
+        <strong> @Html.Encode(User.Identity.Name)</strong>
+        @Html.ActionLink("Sign Out","Logout","User")
+    } else {
+        @Html.ActionLink("Reg","Registration","User")
+        <span>|</span>
+        @Html.ActionLink("Sign In","Login","User")
+    }
+
+
     @RenderBody()
 
     <div class="bottom">
