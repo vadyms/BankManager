@@ -3,30 +3,76 @@
     ViewBag.Title = "LogIn";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>LogIn</h2>
 @using (Html.BeginForm())
 {
     <div class="center">
+        <br/>
         Please enter your credentials:
-        <br/>
-        @Html.LabelFor(m => m.Login,"Login:")
-        @Html.TextBoxFor(m => m.Login)
-        @Html.ValidationMessageFor(m=>m.Login)
-        <br/>
-        @Html.LabelFor(m => m.Password,"Password:")
-        @Html.PasswordFor(m => m.Password)
-        @Html.ValidationMessageFor(m=>m.Password)
-        <br/>
-        @Html.CheckBoxFor( m => m.RememberMe)
-        @Html.LabelFor(m => m.RememberMe,"RememberMe")
-        <br/>
-        <input value="Submit" input type="submit"/? />
-        <br/>
-        @Html.ValidationSummary(true,"Login failed. Check your login details.")
-        
-        @Html.ActionLink("Reg","Registration","")
-        
-        @Html.ActionLink("Register new account","..\\Registration")
+        <table style="margin-left:33%">
+        <tr>
+            <td style="text-align:right">
+                @Html.LabelFor(m => m.Login,"Login:")
+            </td>
+            <td style="text-align:left">
+                @Html.TextBoxFor(m => m.Login)
+            </td>
+            <td style="text-align:left">
+                @Html.ValidationMessageFor(m=>m.Login)
+             </td>
+        </tr>
+        <tr>
+            <td style="text-align:right">
+                @Html.LabelFor(m => m.Password,"Password:")
+            </td>
+            <td>
+                @Html.PasswordFor(m => m.Password)
+            </td>
+            <td style="text-align:left">
+                @Html.ValidationMessageFor(m=>m.Password)
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                @Html.CheckBoxFor( m => m.RememberMe)
+                @Html.LabelFor(m => m.RememberMe,"RememberMe")
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                <input value="Submit" type="submit"/? />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+               <!-- @Html.ValidationSummary(true,"Login failed. Check your login details.") -->
+            </td>  
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>        
+                @Html.ActionLink("Register new account","Registration","User")
+            </td>
+            <td>
+            </td>
+        </tr>
+        </table>
+
     </div>
 }
+
+        <script type="text/javascript">
+                $(document).ready(function () {
+                    $("input[type=text]").jqxInput({ width: '200px', height: '25px' });
+                    $("input[type=password]").jqxInput({ width: '200px', height: '25px' });
+                    $("input[type=submit]").jqxButton({ height: '25px', width: '100px' });
+                    $("#jqxcheckbox").jqxCheckBox({theme: 'energyblue' });
+                });
+        </script>
+
+<div id='jqxcheckbox'>
+    </div>

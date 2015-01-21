@@ -16,11 +16,13 @@ namespace BankManager.Controllers
         {
             return View();
         }
+
         [HttpGet]
         public ActionResult LogIn()
         {
             return View();
         }
+
         [HttpGet]
         public ActionResult LogOut()
         {
@@ -36,7 +38,7 @@ namespace BankManager.Controllers
                 if (IsValid( user.Login, user.Password ))
                 {
                     FormsAuthentication.SetAuthCookie( user.Login, false );
-                    return RedirectToAction( "Index", "DATA" );
+                    return RedirectToAction( "Index", "DBGrid" );
                 }
                 else
                 {
@@ -45,6 +47,7 @@ namespace BankManager.Controllers
             }
             return View();
         }
+
         [HttpPost]
         public ActionResult Registration( BankManager.Models.RegModel user )
         {
@@ -70,6 +73,7 @@ namespace BankManager.Controllers
             }
             return View();
         }
+        
         [HttpGet]
         public ActionResult Registration()
         {

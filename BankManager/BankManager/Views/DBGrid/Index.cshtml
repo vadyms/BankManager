@@ -1,0 +1,141 @@
+﻿@model IEnumerable<BankManager.Client>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<p>
+    <img src="../../Content/Images/edit.gif" />
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        // prepare the data
+        var source =
+            {
+                datatype: "json",
+                datafields: [
+					 { name: 'ID', type: 'string' },
+                     { name: 'ClientContactNumber', type: 'string' },
+					 { name: 'FirstName', type: 'string' },
+					 { name: 'LastName', type: 'string' },
+                     { name: 'DateOfBirth', type: 'date' },
+                     { name: 'PhoneNumber', type: 'string' },
+                     { name: 'Deposit', type: 'boolean' },
+					 { name: 'StatusName', type: 'string' }
+                ],
+                url: 'DBGrid/GetEmployees',
+            };
+        var dataAdapter = new $.jqx.dataAdapter(source);
+
+        var renderer = function (id) {
+            return 'Delete Row'
+        }
+        // initialize jqxGrid
+        $("#grid").jqxGrid(
+            {
+                width: '99.8%',
+                height: '250px',
+                theme: 'energyblue',
+                source: dataAdapter,
+                //filtermode: 'default',
+                filterable: true,
+                sortable: true,
+                autoshowfiltericon: true,
+                showfilterrow: true,
+                pageable: true,
+                pagesize: 5,
+                columns: [
+                    //{ text: "ID", datafield: "ID",  },
+                    { text: "ClientContactNumber", datafield: "ClientContactNumber" },
+                    { text: "FirstName", datafield: "FirstName" },
+                    { text: "LastName", datafield: "LastName" },
+                    { text: "DateOfBirth", datafield: "DateOfBirth", cellsformat: 'd' },
+                    { text: "PhoneNumber", datafield: "PhoneNumber" },
+                    { text: "Deposit", columntype: 'checkbox', datafield: "Deposit" },
+
+                    { text: "ClientStatus", datafield: "StatusName" },
+                    {
+                        text: '', columntype: 'button', align: 'center', cellsalign: 'center', cellclassname: 'editCell', value: 'E', width: '28px', value: '', cellsrenderer: function () {
+                            return;
+                        },
+                        buttonclick: function (row) {
+                            var id = $('#grid').jqxGrid('getcellvalue', row, 'ID');
+                            location.href = '/DBGrid/Edit/'+id;
+                        },
+                    },
+                    {
+                        text: '', columntype: 'button', align: 'center', cellsalign: 'center', cellclassname: 'detailsCell', value: 'I', width: '28px', value: '', cellsrenderer: function () {
+                            return;
+                        },
+                        buttonclick: function (row) {
+                            var id = $('#grid').jqxGrid('getcellvalue', row, 'ID');
+                            location.href = '/DBGrid/Details/' + id;
+                        },
+                    },
+                    {
+                        text: '', columntype: 'button', align: 'center', cellsalign: 'center', cellclassname: 'deleteCell', value: 'D', width: '28px', value: '', cellsrenderer: function () {
+                            return ;
+                        },
+                        buttonclick: function (row) {
+                            //var id = $('#grid').jqxGrid('getcellvalue', row, 'ID');
+                            //location.href = '/DBGrid/Delete/' + id;
+                            //deleteConfirmation()
+
+                            // open the popup window when the user clicks a button.
+                            id = $("#grid").jqxGrid('getrowid', row);
+                            var offset = $("#grid").offset();
+                            $("#popupWindow").jqxWindow({ position: 'center' });
+                            // show the popup window.
+                            $("#popupWindow").jqxWindow('show');
+
+                        }
+                    },
+                ]
+            });
+
+        // initialize the popup window and buttons.
+        $("#popupWindow").jqxWindow({ width: 250, resizable: false, isModal: true, autoOpen: false, cancelButton: $("#Cancel"), position: 'center' });
+        $("#del").jqxButton();
+        $("#cancel").jqxButton();
+        $("#del").click(function () {
+            $.ajax({
+                type: 'POST',
+                url: '/DBGrid/Delete/' + id,
+                data: { id: id },
+                success: function (data) {
+                    $('.results').html(data);
+                }
+            });
+
+            $('#grid').jqxGrid('deleterow', id);
+            $("#popupWindow").jqxWindow('hide');
+        });
+        $("#cancel").click(function () {
+            $("#popupWindow").jqxWindow('hide');
+        });
+    });
+
+</script>
+
+<div id='jqxWidget'>
+
+            <div id="popupWindow" style="">
+            <div>Delete row</div>
+            <div style="overflow: hidden;">
+                <p>
+                    Are you sure you would like to delete the selected row?
+                </p>
+                <p id="id">
+
+                </p>
+                <button id="del">
+                    Yes</button>
+                <button id="cancel">
+                    No</button>
+            </div>
+        </div>
+
+<div id="grid"></div>
+</div>

@@ -86,18 +86,57 @@ body {
     text-align: center;
     background: #5BA4CD;
     font-size: 15px;
+    margin-left: auto;
+    margin-right: auto;
     vertical-align: middle;
-    display:table-cell;
+    display:block;
 }
-.bottom {
+.mainmenu {
     width:1024px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: right;
+    background-color:#5BA4CD;
+    font-size: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align:bottom;
+    display:block;
+}
+.main {
+    height:auto;
+    width:1024px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    font-size: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align:bottom;
+    display:block;
+
+}
+
+.centre
+{
+  display: inline;
+  text-align: center;
+  vertical-align: central;
+  margin-left: auto;
+  margin-right: auto;
+  top: 30%;
+  position: relative;
+}
+
+.bottom {
     height:50px;
+    width:1024px;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     background: #C9DFEC;
     font-size: 15px;
+    margin-left: auto;
+    margin-right: auto;
     vertical-align: middle;
-    display:table-cell;
+    display:block;
 }
 .center {
     width:1024px;
@@ -107,4 +146,35 @@ body {
     font-size: 14px;
     vertical-align: middle;
     display:table-cell;
+}
+table.login {
+    text-align:center;
+}
+
+
+.editCell {
+    background-color: #FFFFFF !important;
+    background-image: url(images/edit.gif) !important;
+    background-repeat: no-repeat !important;
+    border-style: none !important;
+}
+
+.detailsCell {
+    background-color: #FFFFFF !important;
+    background-image: url(images/details.png) !important;
+    background-repeat: no-repeat !important;
+    border-style: none !important;
+}
+.deleteCell {
+    background-color: #FFFFFF !important;
+    background-image: url(images/delete.gif) !important;
+    background-repeat: no-repeat !important;
+    border-style: none !important;
+}
+
+
+input[type="button"]
+{
+    background: transparent;
+    color:none;
 }

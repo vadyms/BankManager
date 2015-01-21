@@ -6,8 +6,34 @@
     <edmx:StorageModels>
     <Schema Namespace="MainDBModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="MainDBModelStoreContainer">
+          <EntitySet Name="Clients" EntityType="MainDBModel.Store.Clients" store:Type="Tables" />
+          <EntitySet Name="ClientStatuses" EntityType="MainDBModel.Store.ClientStatuses" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="MainDBModel.Store.Users" store:Type="Tables" />
+          <AssociationSet Name="FK_ClientStatus" Association="MainDBModel.Store.FK_ClientStatus">
+            <End Role="ClientStatuses" EntitySet="ClientStatuses" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ClientContactNumber" Type="float" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DateOfBirth" Type="datetime" Nullable="false" />
+          <Property Name="PhoneNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Deposit" Type="bit" Nullable="false" />
+          <Property Name="StatusID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="ClientStatuses">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="StatusName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="ID" />
@@ -19,12 +45,30 @@
           <Property Name="Address" Type="nvarchar" MaxLength="200" />
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
+        <Association Name="FK_ClientStatus">
+          <End Role="ClientStatuses" Type="MainDBModel.Store.ClientStatuses" Multiplicity="1" />
+          <End Role="Clients" Type="MainDBModel.Store.Clients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientStatuses">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MainDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="MainDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Users" EntityType="MainDBModel.User" />
+          <EntitySet Name="Clients" EntityType="MainDBModel.Client" />
+          <EntitySet Name="ClientStatuses" EntityType="MainDBModel.ClientStatus" />
+          <AssociationSet Name="FK_ClientStatus" Association="MainDBModel.FK_ClientStatus">
+            <End Role="ClientStatus" EntitySet="ClientStatuses" />
+            <End Role="Client" EntitySet="Clients" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -37,6 +81,40 @@
           <Property Type="String" Name="Address" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Double" Name="ClientContactNumber" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateOfBirth" Nullable="false" Precision="3" />
+          <Property Type="String" Name="PhoneNumber" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Deposit" Nullable="false" />
+          <Property Type="Int32" Name="StatusID" Nullable="false" />
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="ClientStatus" Relationship="MainDBModel.FK_ClientStatus" FromRole="Client" ToRole="ClientStatus" />
+        </EntityType>
+        <EntityType Name="ClientStatus">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="String" Name="StatusName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Clients" Relationship="MainDBModel.FK_ClientStatus" FromRole="ClientStatus" ToRole="Client" />
+        </EntityType>
+        <Association Name="FK_ClientStatus">
+          <End Type="MainDBModel.ClientStatus" Role="ClientStatus" Multiplicity="1" />
+          <End Type="MainDBModel.Client" Role="Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientStatus">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -52,6 +130,28 @@
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="MainDBModel.Client">
+              <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="Deposit" ColumnName="Deposit" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="ClientContactNumber" ColumnName="ClientContactNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClientStatuses">
+            <EntityTypeMapping TypeName="MainDBModel.ClientStatus">
+              <MappingFragment StoreEntitySet="ClientStatuses">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -1,0 +1,53 @@
+﻿@model BankManager.Client
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Client</legend>
+
+    <div class="display-label">ClientContactNumber</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ClientContactNumber)
+    </div>
+
+    <div class="display-label">FirstName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+
+    <div class="display-label">LastName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+
+    <div class="display-label">DateOfBirth</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateOfBirth)
+    </div>
+
+    <div class="display-label">PhoneNumber</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PhoneNumber)
+    </div>
+
+    <div class="display-label">Deposit</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Deposit)
+    </div>
+
+    <div class="display-label">ClientStatus</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ClientStatus.StatusName)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

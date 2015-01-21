@@ -13,7 +13,15 @@ namespace BankManager.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var clients = new List<Client>();
+            using (var db = new MainDBEntities())
+            {
+                using (MainDBEntities dc = new MainDBEntities())
+                {
+                    clients = dc.Clients.ToList();
+                }
+            }
+            return View(clients);
         }
 
     }

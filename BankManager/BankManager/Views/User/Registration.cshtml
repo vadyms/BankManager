@@ -1,37 +1,91 @@
-﻿@model BankManager.Models.RegModel
+﻿    @model BankManager.Models.RegModel
 @{
     ViewBag.Title = "Registration";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Registration</h2>
 @using (Html.BeginForm())
 {
     <div class="center">
+        <br />
         Please type next data:
-        <br/>
-        @Html.LabelFor(m => m.Login,"Login:")
-        @Html.TextBoxFor(m => m.Login)
-        @Html.ValidationMessageFor(m=>m.Login)
-        <br/>
-        @Html.LabelFor(m => m.Password,"Password:")
-        @Html.PasswordFor(m => m.Password)
-        @Html.ValidationMessageFor(m=>m.Password)
-        <br/>
-        @Html.LabelFor(m => m.RepeatPassword,"Repeat Password:")
-        @Html.PasswordFor(m => m.RepeatPassword)
-        @Html.ValidationMessageFor(m=>m.RepeatPassword)
-        <br/>
-        @Html.LabelFor(m => m.Email,"Email:")
-        @Html.TextBoxFor(m => m.Email)
-        @Html.ValidationMessageFor(m=>m.Email)
-        <br/>
-        @Html.LabelFor(m => m.Address,"Address:")
-        @Html.TextBoxFor(m => m.Address)
-        @Html.ValidationMessageFor(m=>m.Address)
-        <br/>
+<table style="margin-left:29%">
+    <tr>
+        <td style="text-align:right">
+            @Html.LabelFor(m => m.Login,"Login:")
+        </td>
+        <td>
+            @Html.TextBoxFor(m => m.Login)
+        </td>
+        <td style="text-align:left">
+            @Html.ValidationMessageFor(m=>m.Login)
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align:right">
+            @Html.LabelFor(m => m.Password,"Password:")
+        </td>
+        <td>
+            @Html.PasswordFor(m => m.Password)
+        </td>
+        <td style="text-align:left">
+            @Html.ValidationMessageFor(m=>m.Password)
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align:right">
+            @Html.LabelFor(m => m.RepeatPassword,"Repeat Password:")
+        </td>
+        <td>
+            @Html.PasswordFor(m => m.RepeatPassword)
+        </td>
+        <td style="text-align:left">
+            @Html.ValidationMessageFor(m=>m.RepeatPassword)
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align:right">
+            @Html.LabelFor(m => m.Email,"Email:")
+        </td>
+        <td>
+            @Html.TextBoxFor(m => m.Email)
+        </td>
+        <td style="text-align:left">
+            @Html.ValidationMessageFor(m=>m.Email)
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align:right">
+            @Html.LabelFor(m => m.Address,"Address:")
+        </td>
+        <td>
+            @Html.TextBoxFor(m => m.Address)
+        </td>
+        <td>
+            @Html.ValidationMessageFor(m=>m.Address)
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
         <input value="Submit" input type="submit"/? />
-        <br/>
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+
+        <td colspan="3">
         @Html.ValidationSummary(true,"Registration failed. Check your login details.")
+        </td>
+
+    </tr>
+</table>
     </div>
 }
+        <script type="text/javascript">
+                $(document).ready(function () {
+                    $("input[type=text]").jqxInput({ width: '200px', height: '25px' });
+                    $("input[type=password]").jqxInput({ width: '200px', height: '25px' });
+                    $("input[type=submit]").jqxButton({ height: '25px', width: '100px' });
+                });
+        </script>
