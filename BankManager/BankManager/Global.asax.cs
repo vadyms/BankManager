@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,8 +13,10 @@ namespace BankManager
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801
 
+
     public class MvcApplication : System.Web.HttpApplication
     {
+        readonly log4net.ILog logger = log4net.LogManager.GetLogger( System.Reflection.MethodBase.GetCurrentMethod().DeclaringType );
         public static void RegisterGlobalFilters( GlobalFilterCollection filters )
         {
             filters.Add( new HandleErrorAttribute() );
@@ -39,6 +42,8 @@ namespace BankManager
 
             RegisterGlobalFilters( GlobalFilters.Filters );
             RegisterRoutes( RouteTable.Routes );
+            log4net.Config.XmlConfigurator.Configure( new FileInfo( Server.MapPath( "~/Web.config" ) ) );
+            logger.Info( "Logger started." );
         }
     }
 }

@@ -1,0 +1,4 @@
+ERROR 2015-01-22 17:09:55,660 20908ms Register               UserRegister       - Registration failes for usera
+INFO  2015-01-22 17:12:19,747   187ms MvcApplication         Application_Start  - Logger started.
+INFO  2015-01-22 17:15:06,954   177ms MvcApplication         Application_Start  - Logger started.
+ERROR 2015-01-22 17:15:25,138 18361ms Register               UserRegister       - Registration failes for user: q

@@ -13,6 +13,7 @@ namespace BankManager.Controllers
     {
         private MainDBEntities db = new MainDBEntities();
 
+        readonly log4net.ILog logger = log4net.LogManager.GetLogger( System.Reflection.MethodBase.GetCurrentMethod().DeclaringType );
 
         public JsonResult GetEmployees()
         {
@@ -125,8 +126,17 @@ namespace BankManager.Controllers
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
-            base.Dispose(disposing);
+            try
+            {
+                db.Dispose();
+                base.Dispose( disposing );
+                logger.Debug( "db.Dispose()" );
+            }
+            catch (Exception e)
+            {
+                logger.Error("Exception comunicate with DB:"+e.ToString());
+
+            }
         }
     }
 }

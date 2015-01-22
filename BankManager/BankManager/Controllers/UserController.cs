@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using BankManager.ServiceLogin;
+using BankManager.ServiceRegister;
 
 namespace BankManager.Controllers
 {
@@ -11,6 +13,10 @@ namespace BankManager.Controllers
     {
         //
         // GET: /User/
+        readonly log4net.ILog logger = log4net.LogManager.GetLogger( System.Reflection.MethodBase.GetCurrentMethod().DeclaringType );
+
+        private LoginSoapClient userLogin;
+        private RegisterSoapClient userRegister;
 
         public ActionResult Index()
         {
@@ -33,9 +39,10 @@ namespace BankManager.Controllers
         [HttpPost]
         public ActionResult LogIn(BankManager.Models.UserModel user)
         {
+            userLogin = new LoginSoapClient();
             if (ModelState.IsValid)
             {
-                if (IsValid( user.Login, user.Password ))
+                if (userLogin.IsValid( user.Login, user.Password ))
                 {
                     FormsAuthentication.SetAuthCookie( user.Login, false );
                     return RedirectToAction( "Index", "DBGrid" );
@@ -51,25 +58,30 @@ namespace BankManager.Controllers
         [HttpPost]
         public ActionResult Registration( BankManager.Models.RegModel user )
         {
+            userRegister = new RegisterSoapClient();
             if (ModelState.IsValid)
             {
-                using (var db = new MainDBEntities())
-                {
-                    var crypto = new SimpleCrypto.PBKDF2();
-                    var encrypPass = crypto.Compute( user.Password );
-                    var sysUser = db.Users.Create();
-                    sysUser.Login = user.Login;
-                    sysUser.Password = encrypPass;
-                    sysUser.PasswordSalt = crypto.Salt;
-                    sysUser.Email = user.Email;
-                    sysUser.Address = user.Address;
+                ServiceRegister.RegModel user1 = new ServiceRegister.RegModel();
+                user1.Login = user.Login;
+                user1.Password = user.Password;
+                user1.RepeatPassword = user.RepeatPassword;
+                user1.Email = user.Email;
+                user1.Address = user.Address;
 
-                    db.Users.Add( sysUser );
-                    db.SaveChanges();
+                if (userRegister.UserRegister( user1 ))
+                {
                     return RedirectToAction( "Index", "Home" );
                 } 
-            }else {
-
+                else
+                {
+                    // notify about unsuccessful registration
+                    ModelState.AddModelError( "", "Registration filed. Please contact admin@BankManager.com for details." );
+                }
+            } 
+            else 
+            {
+                // notify about incorrect model state
+                ModelState.AddModelError( "", "Registration filed. Icorrect registration form." );
             }
             return View();
         }
@@ -78,24 +90,6 @@ namespace BankManager.Controllers
         public ActionResult Registration()
         {
             return View();
-        }
-
-        private bool IsValid(string login, string password) 
-        {
-            bool isValid = false;
-            var crypto = new SimpleCrypto.PBKDF2();
-            using (var db = new MainDBEntities())
-            {
-                var user = db.Users.FirstOrDefault( u => u.Login == login );
-                if (user != null)
-                {
-                    if (user.Password==crypto.Compute(password,user.PasswordSalt))
-                    {
-                        isValid=true;
-                    }
-                }
-            }
-            return isValid;
         }
     }
 }
