@@ -1,4 +1,38 @@
-ERROR 2015-01-22 17:09:55,660 20908ms Register               UserRegister       - Registration failes for usera
-INFO  2015-01-22 17:12:19,747   187ms MvcApplication         Application_Start  - Logger started.
-INFO  2015-01-22 17:15:06,954   177ms MvcApplication         Application_Start  - Logger started.
-ERROR 2015-01-22 17:15:25,138 18361ms Register               UserRegister       - Registration failes for user: q
+INFO  2015-01-28 11:45:52,683   912ms MvcApplication         Application_Start  - Logger started.
+DEBUG 2015-01-28 11:46:07,310 15540ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-01-28 11:46:07,872 16102ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-01-28 11:46:12,618 20848ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-01-28 11:46:14,251 22481ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-01-28 11:46:14,763 22993ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-01-28 11:46:16,328 24558ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-01-28 11:46:21,315 29544ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-01-28 11:46:21,904 30134ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-01-28 11:46:32,050 40279ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-01-28 11:46:37,065 45294ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-01-28 11:46:37,658 45887ms DBGridController       Dispose            - db.Dispose()
+ERROR 2015-01-28 11:47:20,891 89120ms Register               UserRegister       - Registration failed for user: 1 1
+ERROR 2015-01-28 11:47:42,560 110789ms Register               UserRegister       - Registration failed for user: 1 1@1.com
+DEBUG 2015-01-28 11:47:57,812 126041ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-01-28 11:47:58,359 126588ms DBGridController       Dispose            - db.Dispose()
+INFO  2015-01-28 13:27:40,753   280ms MvcApplication         Application_Start  - Logger started.
+INFO  2015-01-28 13:29:29,670 82184ms MvcApplication         Application_Start  - Logger started.
+INFO  2015-01-28 13:34:51,321  4279ms MvcApplication         Application_Start  - Logger started.
+DEBUG 2015-01-28 13:35:01,064 14022ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-01-28 13:35:01,563 14521ms DBGridController       Dispose            - db.Dispose()
+INFO  2015-01-28 13:43:15,119 435695ms MvcApplication         Application_Start  - Logger started.
+DEBUG 2015-01-28 13:43:22,242 442818ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-01-28 13:43:22,746 443322ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-01-28 13:43:31,066 451642ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-01-28 13:43:39,538 460114ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-01-28 13:43:40,046 460622ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-01-28 13:43:42,417 462993ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-01-28 13:43:44,313 464889ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-01-28 13:43:44,971 465547ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-01-28 13:43:46,496 467072ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-01-28 13:43:49,752 470328ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-01-28 13:43:50,276 470852ms DBGridController       Dispose            - db.Dispose()
+INFO  2015-01-28 14:18:53,573   203ms MvcApplication         Application_Start  - Logger started.
+INFO  2015-01-28 14:24:53,035   211ms MvcApplication         Application_Start  - Logger started.
+INFO  2015-01-28 14:28:10,569   231ms MvcApplication         Application_Start  - Logger started.
+INFO  2015-01-28 14:30:52,760   197ms MvcApplication         Application_Start  - Logger started.
+ERROR 2015-01-28 14:31:35,310 42747ms Register               UserRegister       - Registration failed for user: 1 1@1.com

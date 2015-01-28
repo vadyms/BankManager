@@ -61,27 +61,35 @@ namespace BankManager.Controllers
             userRegister = new RegisterSoapClient();
             if (ModelState.IsValid)
             {
-                ServiceRegister.RegModel user1 = new ServiceRegister.RegModel();
-                user1.Login = user.Login;
-                user1.Password = user.Password;
-                user1.RepeatPassword = user.RepeatPassword;
-                user1.Email = user.Email;
-                user1.Address = user.Address;
-
-                if (userRegister.UserRegister( user1 ))
+                ServiceRegister.RegModel usermodel = new ServiceRegister.RegModel();
+                usermodel.Login = user.Login;
+                usermodel.Password = user.Password;
+                usermodel.RepeatPassword = user.RepeatPassword;
+                usermodel.Email = user.Email;
+                usermodel.Address = user.Address;
+                if (usermodel.Password == usermodel.RepeatPassword)
                 {
-                    return RedirectToAction( "Index", "Home" );
-                } 
+                    if (userRegister.UserRegister( usermodel ))
+                    {
+                        ViewBag.Message = "User successfully registerred.";
+                        return View();
+                        //return RedirectToAction( "Index", "Home" );
+                    }
+                    else
+                    {
+                        // notify about unsuccessful registration
+                        ModelState.AddModelError( "", "Registration failed. Please contact admin@BankManager.com for details." );
+                    }
+                }
                 else
                 {
-                    // notify about unsuccessful registration
-                    ModelState.AddModelError( "", "Registration filed. Please contact admin@BankManager.com for details." );
+                    ModelState.AddModelError( "", "Passwords are not the same." );
                 }
             } 
             else 
             {
                 // notify about incorrect model state
-                ModelState.AddModelError( "", "Registration filed. Icorrect registration form." );
+                ModelState.AddModelError( "", "Registration failed. Icorrect registration form." );
             }
             return View();
         }

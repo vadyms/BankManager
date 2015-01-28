@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
     </Reference>
@@ -112,11 +115,8 @@
     <Compile Include="ClientStatus.cs">
       <DependentUpon>MainDBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\DataController.cs" />
-    <Compile Include="Controllers\DBController.cs" />
     <Compile Include="Controllers\DBGridController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Email.asmx.cs">
       <DependentUpon>Email.asmx</DependentUpon>
@@ -125,6 +125,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IUser.cs" />
     <Compile Include="Login.asmx.cs">
       <DependentUpon>Login.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -167,10 +168,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\MainDB.sdf" />
+    <Content Include="Content\Images\Build.jpg" />
     <Content Include="Content\Images\delete.gif" />
     <Content Include="Content\Images\Details.png" />
     <Content Include="Content\Images\edit.gif" />
     <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\print.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -651,7 +654,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -676,10 +681,6 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\LogIn.cshtml" />
     <Content Include="Views\User\Registration.cshtml" />
-    <Content Include="Views\Data\Index.cshtml" />
-    <Content Include="Views\DB\Index.cshtml" />
-    <Content Include="Views\DB\Create.cshtml" />
-    <Content Include="Views\DB\Edit.cshtml" />
     <Content Include="Views\DBGrid\Index.cshtml" />
     <Content Include="Views\DBGrid\Details.cshtml" />
     <Content Include="Views\DBGrid\Create.cshtml" />

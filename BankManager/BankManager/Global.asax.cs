@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Autofac;
+using BankManager.Interfaces;
+using BankManager.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
@@ -35,6 +38,13 @@ namespace BankManager
 
         protected void Application_Start()
         {
+
+            var builder = new ContainerBuilder();
+            builder.RegisterType<IUser>();
+            var container = builder.Build();
+
+            builder.RegisterType<UserModel>().As<IUser>();
+
             AreaRegistration.RegisterAllAreas();
 
             // Use LocalDB for Entity Framework by default

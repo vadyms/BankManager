@@ -35,7 +35,7 @@ namespace BankManager.Controllers
 
         //
         // GET: /DBGrid/
-
+        //[Authorize]
         public ViewResult Index()
         {
             var clients = db.Clients.Include(c => c.ClientStatus);

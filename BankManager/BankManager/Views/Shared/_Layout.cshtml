@@ -41,12 +41,13 @@
     <div class="mainmenu">
     @if (Request.IsAuthenticated)
     {
+        <strong> You are logged in as: </strong>
         <strong> @Html.Encode(User.Identity.Name)</strong>
-        @Html.ActionLink("Sign Out","Logout","User")
+        @Html.ActionLink("Logout","Logout","User")
     } else {
         @Html.ActionLink("Reg","Registration","User")
         <span>|</span>
-        @Html.ActionLink("Sign In","Login","User")
+        @Html.ActionLink("Login","Login","User")
         <span>|</span>
         @Html.ActionLink("Data","","DBGrid")
     }

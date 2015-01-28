@@ -40,7 +40,7 @@ namespace BankManager
             }
             catch
             {
-                logger.Error( "Registration failes for user: " + user.Login );
+                logger.Error( "Registration failed for user: " + user.Login + " " +user.Email );
                 return false;
             }
         }
