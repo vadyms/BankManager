@@ -42,8 +42,14 @@
     <Reference Include="Autofac">
       <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="Autofac.Integration.Mvc">
+      <HintPath>..\packages\Autofac.Mvc3.2.6.3.862\lib\NET40\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.2.1409.1722\lib\net40\Moq.dll</HintPath>
     </Reference>
     <Reference Include="SimpleCrypto, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -115,6 +121,7 @@
     <Compile Include="ClientStatus.cs">
       <DependentUpon>MainDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\DBGridController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -125,6 +132,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IService.cs" />
+    <Compile Include="Models\BankClient.cs" />
+    <Compile Include="Models\ClientService.cs" />
+    <Compile Include="Models\ClientRepository.cs" />
+    <Compile Include="Models\BankClientStatus.cs" />
     <Compile Include="Interfaces\IUser.cs" />
     <Compile Include="Login.asmx.cs">
       <DependentUpon>Login.asmx</DependentUpon>
@@ -146,6 +159,8 @@
       <DependentUpon>MainDBModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\RegModel.cs" />
+    <Compile Include="Models\StatusRepository.cs" />
+    <Compile Include="Models\StatusService.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.asmx.cs">
@@ -228,6 +243,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\themes\base\TableSky.css" />
     <Content Include="Email.asmx" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -688,6 +704,8 @@
     <Content Include="Views\DBGrid\Delete.cshtml" />
     <Content Include="Service References\ServiceLogin\Login.wsdl" />
     <Content Include="Service References\ServiceRegister\Register.wsdl" />
+    <Content Include="Views\Client\Index.cshtml" />
+    <Content Include="Views\Client\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

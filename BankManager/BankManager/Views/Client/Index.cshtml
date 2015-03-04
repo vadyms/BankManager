@@ -1,0 +1,98 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<p>
+    <img src="../../Content/Images/edit.gif" />
+    @Html.ActionLink("Create New", "../Client/Create")
+</p>
+<p>
+    <img src="../../Content/Images/print.png" />
+    @Html.ActionLink("Print", "../Home")
+</p>
+
+<link href="@Url.Content("~/Content/themes/base/TableSky.css")" rel="stylesheet" type="text/css" />
+
+<div id="jqxgrid">
+    <table class="ui-jqgrid-htable">
+        <tr>
+            <th>
+                ClientContactNumber
+            </th>
+            <th>
+                ID
+            </th>
+            <th>
+                FirstName
+            </th>
+            <th>
+                Last name
+            </th>
+            <th>
+                DateOfBirth
+            </th>
+            <th>
+                PhoneNumber
+            </th>
+            <th>
+                Deposit
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Modify
+            </th>
+            <th>
+                Details
+            </th>
+            <th>
+                Delete
+            </th>
+        </tr>
+        @foreach (var p in Model)
+        {
+                <tr>
+                    <td>
+                        @p.ClientContactNumber
+                    </td>
+                    <td>
+                        @p.ID
+                    </td>
+                    <td>
+                        @p.FirstName
+                    </td>
+                    <td>
+                        @p.LastName
+                    </td>
+                    <td>
+                        @p.DateOfBirth
+                    </td>
+                    <td>
+                        @p.PhoneNumber
+                    </td>
+                    <td>
+                        @if (p.Deposit) {
+                            <input type="checkbox" checked disabled/>
+                        } else {
+                            <input type="checkbox" disabled/> 
+                        }
+                        
+                    </td>
+                    <td>
+                        @p.ClientStatus.StatusName
+                    </td>
+                    <td>
+                        <a href="DBGrid/Edit/@p.ID"> <img src="../../Content/Images/edit.gif" /> </a>
+                    </td>
+                    <td>
+                        <a href="DBGrid/Details/@p.ID"> <img src="../../Content/Images/Details.png" /> </a>
+                    </td>
+                    <td>
+                        <a href="DBGrid/Delete/@p.ID"> <img src="../../Content/Images/delete.gif" /> </a>
+                    </td>
+                </tr>
+        }
+    </table>
+</div>
+<br/>
