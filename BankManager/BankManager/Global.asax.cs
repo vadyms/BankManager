@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using Autofac.Integration.Mvc;
+//using Autofac.Integration.Mvc;
 using BankManager.Interfaces;
 using BankManager.Models;
 using System;
@@ -41,7 +41,7 @@ namespace BankManager
         {
 
             var builder = new ContainerBuilder();
-            builder.RegisterControllers( typeof( MvcApplication ).Assembly );
+            //builder.RegisterControllers( typeof( MvcApplication ).Assembly );
             //builder.RegisterType<ClientService>().As<IClientService>();
             builder.RegisterType( typeof(ClientService)).AsImplementedInterfaces();
             builder.RegisterType( typeof(ClientRepository)).AsImplementedInterfaces();
@@ -50,7 +50,7 @@ namespace BankManager
             
             //builder.Register(c=> new ClientService(c.Resolve<IClient>()));
             var container = builder.Build();
-            DependencyResolver.SetResolver( new AutofacDependencyResolver( container ) );
+            //DependencyResolver.SetResolver( new AutofacDependencyResolver( container ) );
             //var client = container.Resolve<IClientService>();
 
             AreaRegistration.RegisterAllAreas();

@@ -16,7 +16,8 @@ namespace BankManager
     public partial class MainDBEntities : DbContext
     {
         public MainDBEntities()
-            : base("name=MainDBEntities")
+            //: base("name=MainDBEntities")
+            : base("name=DefaultConnection")
         {
         }
     

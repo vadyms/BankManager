@@ -6,11 +6,15 @@ using System.Web.Mvc;
 using System.Web.Security;
 using BankManager.ServiceLogin;
 using BankManager.ServiceRegister;
+using BankManager.Abstract;
+using Moq;
+using Autofac;
 
 namespace BankManager.Controllers
 {
     public class UserController : Controller
     {
+
         //
         // GET: /User/
         readonly log4net.ILog logger = log4net.LogManager.GetLogger( System.Reflection.MethodBase.GetCurrentMethod().DeclaringType );
@@ -99,5 +103,14 @@ namespace BankManager.Controllers
         {
             return View();
         }
+
+        private void AddBindings()
+        {
+            Mock<IUserRepository> mock = new Mock<IUserRepository>();
+            mock.Setup(m => m.Users).Returns(new List<User> {
+                new User{ID = 1, Login="1", Password= "1", PasswordSalt="1", Email="1@u.com", Address="1 street"}
+            }.AsQueryable());
+        }
+
     }
 }

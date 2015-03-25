@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio Express 2013 for Web
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankManager", "BankManager\BankManager.csproj", "{39C1318C-BF55-4F28-A2FE-DFD32162C628}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{A3D14177-ED86-4039-BF9C-7B63C6FDC0F2}"
-EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DBBankManager", "DBBankManager\DBBankManager.sqlproj", "{60CE23B2-16B4-4232-8830-A0CF8456C7F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,12 +21,6 @@ Global
 		{A3D14177-ED86-4039-BF9C-7B63C6FDC0F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3D14177-ED86-4039-BF9C-7B63C6FDC0F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3D14177-ED86-4039-BF9C-7B63C6FDC0F2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{60CE23B2-16B4-4232-8830-A0CF8456C7F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{60CE23B2-16B4-4232-8830-A0CF8456C7F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{60CE23B2-16B4-4232-8830-A0CF8456C7F0}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{60CE23B2-16B4-4232-8830-A0CF8456C7F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{60CE23B2-16B4-4232-8830-A0CF8456C7F0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{60CE23B2-16B4-4232-8830-A0CF8456C7F0}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
