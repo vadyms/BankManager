@@ -350,3 +350,5 @@ INFO  2015-03-24 18:22:00,599  2906ms MvcApplication         Application_Start  
 INFO  2015-03-24 18:23:21,787  1203ms MvcApplication         Application_Start  - Logger started.
 INFO  2015-03-24 18:25:58,458   359ms MvcApplication         Application_Start  - Logger started.
 INFO  2015-03-24 18:27:48,895   343ms MvcApplication         Application_Start  - Logger started.
+INFO  2015-03-26 16:51:34,659  3261ms MvcApplication         Application_Start  - Logger started.
+INFO  2015-03-26 16:57:45,921   635ms MvcApplication         Application_Start  - Logger started.

@@ -141,11 +141,6 @@
     <Compile Include="Models\ClientService.cs" />
     <Compile Include="Models\ClientRepository.cs" />
     <Compile Include="Models\BankClientStatus.cs" />
-    <Compile Include="Interfaces\IUser.cs" />
-    <Compile Include="Login.asmx.cs">
-      <DependentUpon>Login.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="MainDBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -169,11 +164,6 @@
     <Compile Include="Register.asmx.cs">
       <DependentUpon>Register.asmx</DependentUpon>
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Service References\ServiceLogin\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Service References\ServiceRegister\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -254,7 +244,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>MainDBModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Login.asmx" />
     <Content Include="MainDBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MainDBModel.edmx</DependentUpon>
@@ -659,13 +648,6 @@
     <Content Include="Scripts\jqwidgets\styles\jqx.web.css" />
     <Content Include="Scripts\jqwidgets\styles\jqx.windowsphone.css" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
-    <Content Include="Service References\ServiceLogin\Login.disco" />
-    <Content Include="Service References\ServiceLogin\configuration91.svcinfo" />
-    <Content Include="Service References\ServiceLogin\configuration.svcinfo" />
-    <Content Include="Service References\ServiceLogin\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
     <Content Include="Service References\ServiceRegister\Register.disco" />
     <Content Include="Service References\ServiceRegister\configuration91.svcinfo" />
     <Content Include="Service References\ServiceRegister\configuration.svcinfo" />
@@ -705,7 +687,6 @@
     <Content Include="Views\DBGrid\Create.cshtml" />
     <Content Include="Views\DBGrid\Edit.cshtml" />
     <Content Include="Views\DBGrid\Delete.cshtml" />
-    <Content Include="Service References\ServiceLogin\Login.wsdl" />
     <Content Include="Service References\ServiceRegister\Register.wsdl" />
     <Content Include="Views\Client\Index.cshtml" />
     <Content Include="Views\Client\Create.cshtml" />
@@ -720,7 +701,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ServiceLogin\" />
     <WCFMetadataStorage Include="Service References\ServiceRegister\" />
   </ItemGroup>
   <ItemGroup>

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-using BankManager.ServiceLogin;
 using BankManager.ServiceRegister;
 using BankManager.Abstract;
 using Moq;
@@ -19,7 +18,6 @@ namespace BankManager.Controllers
         // GET: /User/
         readonly log4net.ILog logger = log4net.LogManager.GetLogger( System.Reflection.MethodBase.GetCurrentMethod().DeclaringType );
 
-        private LoginSoapClient userLogin;
         private RegisterSoapClient userRegister;
 
         public ActionResult Index()
@@ -43,10 +41,10 @@ namespace BankManager.Controllers
         [HttpPost]
         public ActionResult LogIn(BankManager.Models.UserModel user)
         {
-            userLogin = new LoginSoapClient();
+            //userLogin = new LoginSoapClient();
             if (ModelState.IsValid)
             {
-                if (userLogin.IsValid( user.Login, user.Password ))
+                if (IsValid( user.Login, user.Password ))
                 {
                     FormsAuthentication.SetAuthCookie( user.Login, false );
                     return RedirectToAction( "Index", "DBGrid" );
@@ -110,6 +108,24 @@ namespace BankManager.Controllers
             mock.Setup(m => m.Users).Returns(new List<User> {
                 new User{ID = 1, Login="1", Password= "1", PasswordSalt="1", Email="1@u.com", Address="1 street"}
             }.AsQueryable());
+        }
+
+        public bool IsValid(string login, string password)
+        {
+            bool isValid = false;
+            var crypto = new SimpleCrypto.PBKDF2();
+            using (var db = new MainDBEntities())
+            {
+                var user = db.Users.FirstOrDefault(u => u.Login == login);
+                if (user != null)
+                {
+                    if (user.Password == crypto.Compute(password, user.PasswordSalt))
+                    {
+                        isValid = true;
+                    }
+                }
+            }
+            return isValid;
         }
 
     }

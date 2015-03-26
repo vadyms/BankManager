@@ -7,7 +7,7 @@ using System.Web;
 
 namespace BankManager.Models
 {
-    public class UserModel:IUser
+    public class UserModel
     {
         [Required]
         [StringLength(150)]
@@ -22,23 +22,5 @@ namespace BankManager.Models
         
         [Required]
         public bool RememberMe { get; set; }
-
-
-        public string Email
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public void Add()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
