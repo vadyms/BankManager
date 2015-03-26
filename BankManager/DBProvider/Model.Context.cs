@@ -13,10 +13,10 @@ namespace DBProvider
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BankDBEntities1 : DbContext
+    public partial class BankDBEntities : DbContext
     {
-        public BankDBEntities1()
-            : base("name=BankDBEntities1")
+        public BankDBEntities()
+            : base("name=BankDBEntities")
         {
         }
     

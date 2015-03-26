@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using BankManager.ServiceRegister;
 using BankManager.Abstract;
 using Moq;
 using Autofac;
@@ -16,6 +17,8 @@ namespace BankManager.Controllers
         //
         // GET: /User/
         readonly log4net.ILog logger = log4net.LogManager.GetLogger( System.Reflection.MethodBase.GetCurrentMethod().DeclaringType );
+
+        private RegisterSoapClient userRegister;
 
         public ActionResult Index()
         {
@@ -57,16 +60,18 @@ namespace BankManager.Controllers
         [HttpPost]
         public ActionResult Registration( BankManager.Models.RegModel user )
         {
+            userRegister = new RegisterSoapClient();
             if (ModelState.IsValid)
             {
-                user.Login = user.Login;
-                user.Password = user.Password;
-                user.RepeatPassword = user.RepeatPassword;
-                user.Email = user.Email;
-                user.Address = user.Address;
-                if (user.Password == user.RepeatPassword)
+                ServiceRegister.RegModel usermodel = new ServiceRegister.RegModel();
+                usermodel.Login = user.Login;
+                usermodel.Password = user.Password;
+                usermodel.RepeatPassword = user.RepeatPassword;
+                usermodel.Email = user.Email;
+                usermodel.Address = user.Address;
+                if (usermodel.Password == usermodel.RepeatPassword)
                 {
-                    if (UserRegister(user))
+                    if (userRegister.UserRegister( usermodel ))
                     {
                         ViewBag.Message = "User successfully registerred.";
                         return View();
@@ -122,30 +127,6 @@ namespace BankManager.Controllers
             }
             return isValid;
         }
-        public bool UserRegister(BankManager.Models.RegModel user)
-        {
-            try
-            {
-                using (var db = new MainDBEntities())
-                {
-                    var crypto = new SimpleCrypto.PBKDF2();
-                    var encrypPass = crypto.Compute(user.Password);
-                    var sysUser = db.Users.Create();
-                    sysUser.Login = user.Login;
-                    sysUser.Password = encrypPass;
-                    sysUser.PasswordSalt = crypto.Salt;
-                    sysUser.Email = user.Email;
-                    sysUser.Address = user.Address;
-                    db.Users.Add(sysUser);
-                    db.SaveChanges();
-                    return true;
-                }
-            }
-            catch
-            {
-                logger.Error("Registration failed for user: " + user.Login + " " + user.Email);
-                return false;
-            }
-        }
+
     }
 }

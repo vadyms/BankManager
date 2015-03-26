@@ -107,7 +107,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="BankDBEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BankDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Clients" EntityType="Self.Client" />
           <EntitySet Name="ClientStatuses" EntityType="Self.ClientStatus" />
           <EntitySet Name="Users" EntityType="Self.User" />
@@ -121,7 +121,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BankDBModelStoreContainer" CdmEntityContainer="BankDBEntities1">
+        <EntityContainerMapping StorageEntityContainer="BankDBModelStoreContainer" CdmEntityContainer="BankDBEntities">
           <EntitySetMapping Name="Clients">
             <EntityTypeMapping TypeName="BankDBModel.Client">
               <MappingFragment StoreEntitySet="Clients">

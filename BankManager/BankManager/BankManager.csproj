@@ -128,6 +128,10 @@
     <Compile Include="Controllers\DBGridController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Email.asmx.cs">
+      <DependentUpon>Email.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -157,6 +161,15 @@
     <Compile Include="Models\StatusService.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Register.asmx.cs">
+      <DependentUpon>Register.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Service References\ServiceRegister\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
       <DependentUpon>MainDBModel.tt</DependentUpon>
     </Compile>
@@ -224,6 +237,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Content\themes\base\TableSky.css" />
+    <Content Include="Email.asmx" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <EntityDeploy Include="MainDBModel.edmx">
@@ -244,6 +258,7 @@
       <LastGenOutput>MainDBModel.cs</LastGenOutput>
     </Content>
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Register.asmx" />
     <Content Include="Scripts\jquery-1.11.2.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -633,6 +648,13 @@
     <Content Include="Scripts\jqwidgets\styles\jqx.web.css" />
     <Content Include="Scripts\jqwidgets\styles\jqx.windowsphone.css" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Service References\ServiceRegister\Register.disco" />
+    <Content Include="Service References\ServiceRegister\configuration91.svcinfo" />
+    <Content Include="Service References\ServiceRegister\configuration.svcinfo" />
+    <Content Include="Service References\ServiceRegister\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -665,14 +687,21 @@
     <Content Include="Views\DBGrid\Create.cshtml" />
     <Content Include="Views\DBGrid\Edit.cshtml" />
     <Content Include="Views\DBGrid\Delete.cshtml" />
+    <Content Include="Service References\ServiceRegister\Register.wsdl" />
     <Content Include="Views\Client\Index.cshtml" />
     <Content Include="Views\Client\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceRegister\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DBProvider\DBProvider.csproj">
