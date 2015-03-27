@@ -155,11 +155,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MainDBEntities.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\ClientService.cs" />
-    <Compile Include="Models\ClientRepository.cs" />
+    <Compile Include="Services\ClientService.cs" />
+    <Compile Include="BankData\ClientRepository.cs" />
     <Compile Include="Models\RegModel.cs" />
-    <Compile Include="Models\StatusRepository.cs" />
-    <Compile Include="Models\StatusService.cs" />
+    <Compile Include="BankData\StatusRepository.cs" />
+    <Compile Include="Services\StatusService.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\UserService.cs" />

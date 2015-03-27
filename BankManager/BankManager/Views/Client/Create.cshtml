@@ -1,16 +1,14 @@
 ﻿
-@model BankManager.BankClient
+@model BankManager.Client
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Create client";
 }
-
-<h2>Create</h2>
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
         <fieldset>
-        <legend>Client create</legend>
+        <legend>Create client</legend>
 <table>
     <tr>
         <td style="text-align:right">
