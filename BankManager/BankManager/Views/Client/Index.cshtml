@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "Index";
 }
 
@@ -57,7 +58,7 @@
                         @p.ClientContactNumber
                     </td>
                     <td>
-                        @p.ID
+                        @p.Id
                     </td>
                     <td>
                         @p.FirstName
@@ -83,13 +84,13 @@
                         @p.ClientStatus.StatusName
                     </td>
                     <td>
-                        <a href="DBGrid/Edit/@p.ID"> <img src="../../Content/Images/edit.gif" /> </a>
+                        <a href="DBGrid/Edit/@p.Id"> <img src="../../Content/Images/edit.gif" /> </a>
                     </td>
                     <td>
-                        <a href="DBGrid/Details/@p.ID"> <img src="../../Content/Images/Details.png" /> </a>
+                        <a href="DBGrid/Details/@p.Id"> <img src="../../Content/Images/Details.png" /> </a>
                     </td>
                     <td>
-                        <a href="DBGrid/Delete/@p.ID"> <img src="../../Content/Images/delete.gif" /> </a>
+                        <a href="DBGrid/Delete/@p.Id"> <img src="../../Content/Images/delete.gif" /> </a>
                     </td>
                 </tr>
         }

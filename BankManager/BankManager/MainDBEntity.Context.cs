@@ -13,11 +13,10 @@ namespace BankManager
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MainDBEntities : DbContext
+    public partial class BankDBEntities : DbContext
     {
-        public MainDBEntities()
-            //: base("name=MainDBEntities")
-            : base("name=DefaultConnection")
+        public BankDBEntities()
+            : base("name=BankDBEntities")
         {
         }
     
@@ -26,8 +25,8 @@ namespace BankManager
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<User> Users { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<ClientStatus> ClientStatuses { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace BankManager.Models
     public class ClientRepository : IRepository<Client>, IRepository<ClientStatus>
     {
         // Define DB context to get data
-        MainDBEntities dbContext = new MainDBEntities();
+        BankDBEntities dbContext = new BankDBEntities();
 
         public int Create( Client client )
         {

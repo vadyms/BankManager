@@ -14,14 +14,14 @@ namespace BankManager
     
     public partial class Client
     {
-        public double ClientContactNumber { get; set; }
+        public int Id { get; set; }
+        public int ClientContactNumber { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public System.DateTime DateOfBirth { get; set; }
         public string PhoneNumber { get; set; }
         public bool Deposit { get; set; }
         public int StatusID { get; set; }
-        public int ID { get; set; }
     
         public virtual ClientStatus ClientStatus { get; set; }
     }

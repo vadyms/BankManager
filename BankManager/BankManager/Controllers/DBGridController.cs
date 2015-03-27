@@ -11,7 +11,7 @@ namespace BankManager.Controllers
 { 
     public class DBGridController : Controller
     {
-        private MainDBEntities db = new MainDBEntities();
+        private BankDBEntities db = new BankDBEntities();
 
         readonly log4net.ILog logger = log4net.LogManager.GetLogger( System.Reflection.MethodBase.GetCurrentMethod().DeclaringType );
 
@@ -21,7 +21,7 @@ namespace BankManager.Controllers
             var clients = (from client in dbResult
                              select new
                              {
-                                 client.ID,
+                                 client.Id,
                                  client.ClientContactNumber,
                                  client.FirstName,
                                  client.LastName,

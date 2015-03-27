@@ -38,7 +38,6 @@ namespace BankManager.Controllers
         [HttpPost]
         public ActionResult LogIn(BankManager.Models.UserModel user)
         {
-            //userLogin = new LoginSoapClient();
             if (ModelState.IsValid)
             {
                 if (IsValid( user.Login, user.Password ))
@@ -101,7 +100,7 @@ namespace BankManager.Controllers
         {
             Mock<IUserRepository> mock = new Mock<IUserRepository>();
             mock.Setup(m => m.Users).Returns(new List<User> {
-                new User{ID = 1, Login="1", Password= "1", PasswordSalt="1", Email="1@u.com", Address="1 street"}
+                new User{Id = 1, Login="1", Password= "1", PasswordSalt="1", Email="1@u.com", Address="1 street"}
             }.AsQueryable());
         }
 
@@ -109,7 +108,7 @@ namespace BankManager.Controllers
         {
             bool isValid = false;
             var crypto = new SimpleCrypto.PBKDF2();
-            using (var db = new MainDBEntities())
+            using (var db = new BankDBEntities())
             {
                 var user = db.Users.FirstOrDefault(u => u.Login == login);
                 if (user != null)
@@ -126,7 +125,7 @@ namespace BankManager.Controllers
         {
             try
             {
-                using (var db = new MainDBEntities())
+                using (var db = new BankDBEntities())
                 {
                     var crypto = new SimpleCrypto.PBKDF2();
                     var encrypPass = crypto.Compute( user.Password );

@@ -8,7 +8,7 @@ namespace BankManager.Models
 {
     public class StatusRepository : IRepository<ClientStatus>
     {
-        MainDBEntities dbContext = new MainDBEntities();
+        BankDBEntities dbContext = new BankDBEntities();
 
         public int Create( ClientStatus status )
         {

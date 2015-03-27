@@ -6,6 +6,10 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankManager", "BankManager\BankManager.csproj", "{39C1318C-BF55-4F28-A2FE-DFD32162C628}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{A3D14177-ED86-4039-BF9C-7B63C6FDC0F2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{39C1318C-BF55-4F28-A2FE-DFD32162C628} = {39C1318C-BF55-4F28-A2FE-DFD32162C628}
+		{12EC3CC1-C5D4-4D84-9FE0-5367314C4BF1} = {12EC3CC1-C5D4-4D84-9FE0-5367314C4BF1}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBProvider", "DBProvider\DBProvider.csproj", "{12EC3CC1-C5D4-4D84-9FE0-5367314C4BF1}"
 EndProject

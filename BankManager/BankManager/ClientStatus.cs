@@ -19,8 +19,8 @@ namespace BankManager
             this.Clients = new HashSet<Client>();
         }
     
+        public int Id { get; set; }
         public string StatusName { get; set; }
-        public int ID { get; set; }
     
         public virtual ICollection<Client> Clients { get; set; }
     }
