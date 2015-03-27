@@ -1,5 +1,5 @@
 ﻿using Autofac;
-//using Autofac.Integration.Mvc;
+using Autofac.Integration.Mvc;
 using BankManager.Interfaces;
 using BankManager.Models;
 using System;
@@ -8,6 +8,7 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -41,7 +42,7 @@ namespace BankManager
         {
 
             var builder = new ContainerBuilder();
-            //builder.RegisterControllers( typeof( MvcApplication ).Assembly );
+            builder.RegisterControllers( typeof( MvcApplication ).Assembly );
             //builder.RegisterType<ClientService>().As<IClientService>();
             builder.RegisterType( typeof(ClientService)).AsImplementedInterfaces();
             builder.RegisterType( typeof(ClientRepository)).AsImplementedInterfaces();
@@ -49,10 +50,12 @@ namespace BankManager
             builder.RegisterType( typeof(StatusRepository)).AsImplementedInterfaces();
             
             //builder.Register(c=> new ClientService(c.Resolve<IClient>()));
+
             var container = builder.Build();
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+
             //DependencyResolver.SetResolver( new AutofacDependencyResolver( container ) );
             //var client = container.Resolve<IClientService>();
-
             AreaRegistration.RegisterAllAreas();
 
             // Use LocalDB for Entity Framework by default

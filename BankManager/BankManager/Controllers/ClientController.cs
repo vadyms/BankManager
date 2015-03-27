@@ -23,8 +23,8 @@ namespace BankManager.Controllers
         }
         public ClientController(IService<Client> clientService, IService<ClientStatus> statusService)
         {
-            _clientService = clientService;
             _statusService = statusService;
+            _clientService = clientService;
         }
         public ActionResult Create()
         {

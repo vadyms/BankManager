@@ -13,6 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BankManager</RootNamespace>
     <AssemblyName>BankManager</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -154,10 +155,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MainDBEntities.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\BankClient.cs" />
     <Compile Include="Models\ClientService.cs" />
     <Compile Include="Models\ClientRepository.cs" />
-    <Compile Include="Models\BankClientStatus.cs" />
     <Compile Include="Models\RegModel.cs" />
     <Compile Include="Models\StatusRepository.cs" />
     <Compile Include="Models\StatusService.cs" />

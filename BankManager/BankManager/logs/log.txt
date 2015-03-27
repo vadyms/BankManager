@@ -406,3 +406,88 @@ INFO  2015-03-27 12:23:48,087   477ms MvcApplication         Application_Start  
 INFO  2015-03-27 12:25:43,697 47243ms MvcApplication         Application_Start  - Logger started.
 INFO  2015-03-27 12:27:01,893  4671ms MvcApplication         Application_Start  - Logger started.
 INFO  2015-03-27 12:42:34,956  1403ms MvcApplication         Application_Start  - Logger started.
+INFO  2015-03-27 12:44:47,095   189ms MvcApplication         Application_Start  - Logger started.
+INFO  2015-03-27 12:45:17,689   383ms MvcApplication         Application_Start  - Logger started.
+INFO  2015-03-27 12:45:52,552   199ms MvcApplication         Application_Start  - Logger started.
+INFO  2015-03-27 12:46:31,014   249ms MvcApplication         Application_Start  - Logger started.
+DEBUG 2015-03-27 12:46:52,013 21247ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 12:46:52,688 21922ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 12:46:59,998 29232ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 12:47:04,628 33863ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 12:47:05,309 34543ms DBGridController       Dispose            - db.Dispose()
+INFO  2015-03-27 12:47:44,413   638ms MvcApplication         Application_Start  - Logger started.
+INFO  2015-03-27 12:49:37,850  1960ms MvcApplication         Application_Start  - Logger started.
+INFO  2015-03-27 12:58:03,595  2352ms MvcApplication         Application_Start  - Logger started.
+INFO  2015-03-27 12:58:36,042   344ms MvcApplication         Application_Start  - Logger started.
+INFO  2015-03-27 12:59:45,489   455ms MvcApplication         Application_Start  - Logger started.
+INFO  2015-03-27 13:00:09,376   215ms MvcApplication         Application_Start  - Logger started.
+DEBUG 2015-03-27 13:00:30,109 20949ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:00:30,137 20976ms DBGridController       Dispose            - db.Dispose()
+INFO  2015-03-27 13:00:57,693   244ms MvcApplication         Application_Start  - Logger started.
+DEBUG 2015-03-27 13:01:39,976 42526ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:01:40,198 42749ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:01:40,231 42782ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:01:40,289 42839ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:01:41,011 43561ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:01:41,013 43563ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:01:41,520 44070ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:01:41,520 44071ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:01:41,707 44257ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:01:41,708 44258ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:01:42,231 44782ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:01:42,232 44783ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:01:43,202 45752ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:01:43,205 45755ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:01:43,217 45767ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:01:43,218 45768ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:01:46,900 49451ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:01:46,902 49453ms DBGridController       Dispose            - db.Dispose()
+INFO  2015-03-27 13:02:56,040   458ms MvcApplication         Application_Start  - Logger started.
+DEBUG 2015-03-27 13:03:05,306  9724ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:03:05,311  9729ms DBGridController       Dispose            - db.Dispose()
+INFO  2015-03-27 13:04:20,873   259ms MvcApplication         Application_Start  - Logger started.
+DEBUG 2015-03-27 13:04:21,172   557ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:04:21,209   595ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:04:33,777 13162ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:04:33,779 13164ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:04:36,474 15859ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:04:36,475 15860ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:04:37,339 16725ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:04:37,339 16725ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:04:49,094 28480ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:04:49,095 28481ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:04:57,460 36845ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:04:57,470 36856ms DBGridController       Dispose            - db.Dispose()
+INFO  2015-03-27 13:05:34,407   516ms MvcApplication         Application_Start  - Logger started.
+DEBUG 2015-03-27 13:05:34,722   831ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:05:34,731   840ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:05:45,467 11576ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:05:45,468 11576ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:05:49,277 15386ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:05:49,278 15387ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:05:49,839 15948ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:05:49,839 15948ms DBGridController       Dispose            - db.Dispose()
+INFO  2015-03-27 13:26:08,629   507ms MvcApplication         Application_Start  - Logger started.
+DEBUG 2015-03-27 13:26:20,338 12216ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:26:20,340 12218ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:26:25,060 16938ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:26:25,061 16939ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:26:25,655 17533ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:26:25,656 17534ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:26:31,431 23309ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:26:31,432 23310ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:26:32,557 24435ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:26:32,557 24435ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:26:52,890 44768ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:26:52,891 44769ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:26:53,396 45274ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:26:53,397 45275ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:27:31,233 83111ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:27:31,234 83112ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:27:34,477 86355ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:27:34,478 86356ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:27:34,985 86863ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:27:34,985 86864ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:27:50,358 102236ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-03-27 13:27:50,359 102237ms DBGridController       Dispose            - db.Dispose()
+INFO  2015-03-27 14:29:40,489  2394ms MvcApplication         Application_Start  - Logger started.

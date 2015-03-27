@@ -16,7 +16,7 @@ namespace BankManager.Services
 
         public IEnumerable<User> FindAll()
         {
-            return context.Users;;
+            return context.Users;
         }
 
         public User FindById(int id)
