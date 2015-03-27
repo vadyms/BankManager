@@ -14,6 +14,7 @@ namespace UnitTests
         public void TestMethod1()
         {
             //UserController uc = new UserController();
+
             //Assert.AreNotEqual( null, uc.Index() );
             Assert.AreEqual( 2, 2 );
         }

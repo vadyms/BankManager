@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="b35664091ab44f479b9159aec1e33533" Name="Diagram1">
         <EntityTypeShape EntityType="BankDBModel.Client" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="BankDBModel.ClientStatus" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankDBModel.ClientStatus" Width="1.5" PointX="0.625" PointY="2.125" IsExpanded="true" />
         <EntityTypeShape EntityType="BankDBModel.User" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <AssociationConnector Association="BankDBModel.StatusID_FK" ManuallyRouted="false" />
       </Diagram>
