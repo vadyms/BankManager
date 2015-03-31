@@ -1,7 +1,9 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
+using BankManager.BankData;
 using BankManager.Interfaces;
 using BankManager.Models;
+using BankManager.Services;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -46,6 +48,8 @@ namespace BankManager
             //builder.RegisterType<ClientService>().As<IClientService>();
             builder.RegisterType( typeof(ClientService)).AsImplementedInterfaces();
             builder.RegisterType( typeof(ClientRepository)).AsImplementedInterfaces();
+            builder.RegisterType(typeof(UserService)).AsImplementedInterfaces();
+            builder.RegisterType(typeof(UserRepository)).AsImplementedInterfaces();
             builder.RegisterType( typeof(StatusService)).AsImplementedInterfaces();
             builder.RegisterType( typeof(StatusRepository)).AsImplementedInterfaces();
             

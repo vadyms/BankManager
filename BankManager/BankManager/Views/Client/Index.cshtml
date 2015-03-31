@@ -18,22 +18,22 @@
     <table class="ui-jqgrid-htable">
         <tr>
             <th>
-                ClientContactNumber
+                Client Contact Number
             </th>
             <th>
                 ID
             </th>
             <th>
-                FirstName
+                First name
             </th>
             <th>
                 Last name
             </th>
             <th>
-                DateOfBirth
+                Date Of Birth
             </th>
             <th>
-                PhoneNumber
+                Phone Number
             </th>
             <th>
                 Deposit
@@ -74,7 +74,7 @@
                     </td>
                     <td>
                         @if (p.Deposit) {
-                            <input type="checkbox" checked disabled/>
+                            <input type="checkbox" checked disabled="disabled"/>
                         } else {
                             <input type="checkbox" disabled/> 
                         }
@@ -84,7 +84,7 @@
                         @p.ClientStatus.StatusName
                     </td>
                     <td>
-                        <a href="DBGrid/Edit/@p.Id"> <img src="../../Content/Images/edit.gif" /> </a>
+                        <a href="DBGrid/Edit/@p.Id"> <img src="../../Content/Images/editoriginal.gif" /> </a>
                     </td>
                     <td>
                         <a href="DBGrid/Details/@p.Id"> <img src="../../Content/Images/Details.png" /> </a>

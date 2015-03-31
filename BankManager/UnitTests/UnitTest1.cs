@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Moq;
+using BankManager;
+using BankManager.Models;
 
 namespace UnitTests
 {
@@ -11,12 +13,19 @@ namespace UnitTests
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Create()
         {
-            //UserController uc = new UserController();
-
-            //Assert.AreNotEqual( null, uc.Index() );
-            Assert.AreEqual( 2, 2 );
+            Client cl = new Client();
+            cl.FirstName = "FNtest";
+            cl.LastName = "LNtest";
+            cl.PhoneNumber = "12341234";
+            cl.StatusID = 1;
+            cl.ClientContactNumber = 1;
+            cl.DateOfBirth = DateTime.Now;
+            cl.Deposit = true;
+            ClientRepository cr = new ClientRepository();
+            cr.Create(cl);
+            Assert.AreEqual(1, 1);
         }
     }
 }

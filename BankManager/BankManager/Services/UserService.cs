@@ -8,7 +8,7 @@ namespace BankManager.Services
 {
     public class UserService:IService<User>
     {
-        private BankDBEntities context = new BankDBEntities();
+        private readonly IRepository<User> _iUserRepository;
         public int Create(User t)
         {
             throw new NotImplementedException();
@@ -16,7 +16,7 @@ namespace BankManager.Services
 
         public IEnumerable<User> FindAll()
         {
-            return context.Users;
+            return _iUserRepository.FindAll();
         }
 
         public User FindById(int id)
