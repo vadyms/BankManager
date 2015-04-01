@@ -9,9 +9,13 @@ namespace BankManager.Services
     public class UserService:IService<User>
     {
         private readonly IRepository<User> _iUserRepository;
-        public int Create(User t)
+        public UserService(IRepository<User> userRepository)
         {
-            throw new NotImplementedException();
+            _iUserRepository = userRepository;
+        }
+        public int Create(User user)
+        {
+            return _iUserRepository.Create(user); ;
         }
 
         public IEnumerable<User> FindAll()

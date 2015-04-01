@@ -10,16 +10,28 @@ namespace BankManager.BankData
     public class UserRepository:IRepository<User>
     {
         private BankDBEntities context = new BankDBEntities();
+        readonly log4net.ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public int Create(User user)
         {
-            if (user != null)
-            {
-                context.Users.Add(user);
-                context.SaveChanges();
+            try {
+                if (user != null)
+                {
+                    var crypto = new SimpleCrypto.PBKDF2();
+                    var encrypPass = crypto.Compute(user.Password);
+                    user.Password = encrypPass;
+                    user.PasswordSalt = crypto.Salt;
+                    context.Users.Add(user);
+                    context.SaveChanges();
+                    return 0;
+                }
                 return 1;
             }
-            return 0;
+            catch
+            {
+                logger.Error( "Registration failed for user: " + user.Login + " " +user.Email );
+                return 1;
+            }
         }
 
         public IEnumerable<User> FindAll()

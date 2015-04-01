@@ -7,6 +7,7 @@ using System.Web.Security;
 using BankManager.Abstract;
 using Moq;
 using Autofac;
+using BankManager.Interfaces;
 
 namespace BankManager.Controllers
 {
@@ -16,6 +17,12 @@ namespace BankManager.Controllers
         //
         // GET: /User/
         readonly log4net.ILog logger = log4net.LogManager.GetLogger( System.Reflection.MethodBase.GetCurrentMethod().DeclaringType );
+        private readonly IService<User> _userService = null;
+
+        public UserController(IService<User> userService)
+        {
+            _userService = userService;
+        }
 
         public ActionResult Index()
         {
@@ -63,9 +70,14 @@ namespace BankManager.Controllers
                 user.RepeatPassword = user.RepeatPassword;
                 user.Email = user.Email;
                 user.Address = user.Address;
+                User _user = new User();
+                _user.Login = user.Login;
+                _user.Password = user.Password;
+                _user.Address = user.Address;
+                _user.Email = user.Email;
                 if (user.Password == user.RepeatPassword)
                 {
-                    if (UserRegister( user ))
+                    if (_userService.Create( _user ) == 0 )
                     {
                         ViewBag.Message = "User successfully registerred.";
                         return View();
@@ -96,21 +108,15 @@ namespace BankManager.Controllers
             return View();
         }
 
-        private void AddBindings()
-        {
-            Mock<IUserRepository> mock = new Mock<IUserRepository>();
-            mock.Setup(m => m.Users).Returns(new List<User> {
-                new User{Id = 1, Login="1", Password= "1", PasswordSalt="1", Email="1@u.com", Address="1 street"}
-            }.AsQueryable());
-        }
-
         public bool IsValid(string login, string password)
         {
             bool isValid = false;
             var crypto = new SimpleCrypto.PBKDF2();
             using (var db = new BankDBEntities())
             {
-                var user = db.Users.FirstOrDefault(u => u.Login == login);
+                var users = _userService.FindAll();
+                var user = users.FirstOrDefault(u => u.Login == login);
+                
                 if (user != null)
                 {
                     if (user.Password == crypto.Compute(password, user.PasswordSalt))
@@ -145,6 +151,13 @@ namespace BankManager.Controllers
                 logger.Error( "Registration failed for user: " + user.Login + " " +user.Email );
                 return false;
             }
+        }
+        private void AddBindings()
+        {
+            Mock<IUserRepository> mock = new Mock<IUserRepository>();
+            mock.Setup(m => m.Users).Returns(new List<User> {
+                new User{Id = 1, Login="1", Password= "1", PasswordSalt="1", Email="1@u.com", Address="1 street"}
+            }.AsQueryable());
         }
     }
 }
