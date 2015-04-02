@@ -31,5 +31,11 @@ namespace BankManager.Models
         {
             return dbContext.ClientStatuses.Find( id );
         }
+
+
+        public int Update(ClientStatus t)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

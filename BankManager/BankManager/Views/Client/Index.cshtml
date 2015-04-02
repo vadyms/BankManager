@@ -2,57 +2,58 @@
 @{
     ViewBag.Title = "Index";
 }
+<fieldset>
+    <legend>Clients</legend>
+    <p>
+        <img src="../../Content/Images/edit.gif" />
+        @Html.ActionLink("Create New", "../Client/Create")
+    </p>
+    <p>
+        <img src="../../Content/Images/print.png" />
+        @Html.ActionLink("Print", "../Home")
+    </p>
 
-<p>
-    <img src="../../Content/Images/edit.gif" />
-    @Html.ActionLink("Create New", "../Client/Create")
-</p>
-<p>
-    <img src="../../Content/Images/print.png" />
-    @Html.ActionLink("Print", "../Home")
-</p>
+    <link href="@Url.Content("~/Content/themes/base/TableSky.css")" rel="stylesheet" type="text/css" />
 
-<link href="@Url.Content("~/Content/themes/base/TableSky.css")" rel="stylesheet" type="text/css" />
-
-<div id="jqxgrid">
-    <table class="ui-jqgrid-htable">
-        <tr>
-            <th>
-                Client Contact Number
-            </th>
-            <th>
-                ID
-            </th>
-            <th>
-                First name
-            </th>
-            <th>
-                Last name
-            </th>
-            <th>
-                Date Of Birth
-            </th>
-            <th>
-                Phone Number
-            </th>
-            <th>
-                Deposit
-            </th>
-            <th>
-                Status
-            </th>
-            <th>
-                Modify
-            </th>
-            <th>
-                Details
-            </th>
-            <th>
-                Delete
-            </th>
-        </tr>
-        @foreach (var p in Model)
-        {
+    <div id="jqxgrid">
+        <table class="ui-jqgrid-htable">
+            <tr>
+                <th>
+                    Client Contact Number
+                </th>
+                <th>
+                    ID
+                </th>
+                <th>
+                    First name
+                </th>
+                <th>
+                    Last name
+                </th>
+                <th>
+                    Date Of Birth
+                </th>
+                <th>
+                    Phone Number
+                </th>
+                <th>
+                    Deposit
+                </th>
+                <th>
+                    Status
+                </th>
+                <th>
+                    Modify
+                </th>
+                <th>
+                    Details
+                </th>
+                <th>
+                    Delete
+                </th>
+            </tr>
+            @foreach (var p in Model)
+            {
                 <tr>
                     <td>
                         @p.ClientContactNumber
@@ -73,12 +74,15 @@
                         @p.PhoneNumber
                     </td>
                     <td>
-                        @if (p.Deposit) {
-                            <input type="checkbox" checked disabled="disabled"/>
-                        } else {
-                            <input type="checkbox" disabled/> 
+                        @if (p.Deposit)
+                        {
+                            <input type="checkbox" checked disabled="disabled" />
                         }
-                        
+                        else
+                        {
+                            <input type="checkbox" disabled />
+                        }
+
                     </td>
                     <td>
                         @p.ClientStatus.StatusName
@@ -93,7 +97,8 @@
                         <a href="Client/Delete/@p.Id"> <img src="../../Content/Images/delete.gif" /> </a>
                     </td>
                 </tr>
-        }
-    </table>
-</div>
-<br/>
+            }
+        </table>
+    </div>
+    <br />
+</fieldset>

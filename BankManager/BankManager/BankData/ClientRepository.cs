@@ -38,17 +38,33 @@ namespace BankManager.Models
             return dbContext.Clients.Find( id );
         }
 
-        public int Create( ClientStatus t )
-        {
-            throw new NotImplementedException();
-        }
-
         IEnumerable<ClientStatus> IRepository<ClientStatus>.FindAll()
         {
             return dbContext.ClientStatuses.ToList();
         }
 
-        ClientStatus IRepository<ClientStatus>.FindById( int id )
+        int IRepository<Client>.Create(Client t)
+        {
+            throw new NotImplementedException();
+        }
+
+        int IRepository<Client>.Update(Client t)
+        {
+            throw new NotImplementedException();
+        }
+
+        int IRepository<ClientStatus>.Create(ClientStatus t)
+        {
+            throw new NotImplementedException();
+        }
+
+        int IRepository<ClientStatus>.Update(ClientStatus t)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        ClientStatus IRepository<ClientStatus>.FindById(int id)
         {
             throw new NotImplementedException();
         }

@@ -3,12 +3,14 @@
 @{
     ViewBag.Title = "Details";
 }
-<p>
-    <img src="../../Content/Images/edit.gif" />
-    @Html.ActionLink("Edit", "Edit", new { id=Model.Id })
-</p>
+
 <fieldset>
     <legend>Client details</legend>
+    <p>
+        <img src="../../Content/Images/edit.gif" />
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+    </p>
+
 <table>
     <tr>
         <td>

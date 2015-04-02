@@ -158,6 +158,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MainDBEntities.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ClientModel.cs" />
     <Compile Include="Services\ClientService.cs" />
     <Compile Include="BankData\ClientRepository.cs" />
     <Compile Include="Models\RegModel.cs" />

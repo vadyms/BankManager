@@ -9,115 +9,117 @@
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
-<table>
-    <tr>
-        <td  style="text-align:right">
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ClientContactNumber):
-        </div>
-        </td>
-        <td>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.ClientContactNumber)
-            @Html.ValidationMessageFor(model => model.ClientContactNumber)
-        </div>
-        </td>
-    </tr>
-    <tr>
-        <td  style="text-align:right">
-        <div class="editor-label">
-            @Html.LabelFor(model => model.FirstName):
-        </div>
-        </td>
-        <td>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.FirstName)
-            @Html.ValidationMessageFor(model => model.FirstName)
-        </div>
-        </td>
-    </tr>
-    <tr>
-        <td  style="text-align:right">
-        <div class="editor-label">
-            @Html.LabelFor(model => model.LastName):
-        </div>
-        </td>
-        <td>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.LastName)
-            @Html.ValidationMessageFor(model => model.LastName)
-        </div>
-        </td>
-    </tr>
-    <tr>
-        <td  style="text-align:right">
-        <div class="editor-label">
-            @Html.LabelFor(model => model.DateOfBirth):
-        </div>
-        </td>
-        <td>
-        <div class="editor-field" id="DateOfBirth">
-            @Html.EditorFor(model => model.DateOfBirth)
-            @Html.ValidationMessageFor(model => model.DateOfBirth)
-        </div>
-        </td>
-    </tr>
-    <tr>
-        <td  style="text-align:right">
-        <div class="editor-label">
-            @Html.LabelFor(model => model.PhoneNumber):
-        </div>
-        </td>
-        <td>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.PhoneNumber)
-            @Html.ValidationMessageFor(model => model.PhoneNumber)
-        </div>
-        </td>
-    </tr>
-    <tr>
-        <td  style="text-align:right">
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Deposit):
-        </div>
-        </td>
-        <td>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Deposit)
-            @Html.ValidationMessageFor(model => model.Deposit)
-        </div>
-        </td>
-    </tr>
-    <tr>
-        <td style="text-align:right">
-        <div class="editor-label">
-            @Html.LabelFor(model => model.StatusID, "ClientStatus"):
-        </div>
-        </td>
-        <td>
-        <div class="editor-field">
-            @Html.DropDownList("StatusID", String.Empty)
-            @Html.ValidationMessageFor(model => model.StatusID)
-        </div>
-        </td>
-    </tr>
-    <tr>
-        <td>
-        </td>
-        <td>
-        @Html.HiddenFor(model => model.Id)
-        <p>
-            <input type="submit" value="Save" />
-        </p>
-        </td>
-    </tr>
-</table>
+    <fieldset>
+        <legend>Edit client</legend>
+        <table>
+            <tr>
+                <td style="text-align:right">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.ClientContactNumber):
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.ClientContactNumber)
+                        @Html.ValidationMessageFor(model => model.ClientContactNumber)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:right">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.FirstName):
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.FirstName)
+                        @Html.ValidationMessageFor(model => model.FirstName)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:right">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.LastName):
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.LastName)
+                        @Html.ValidationMessageFor(model => model.LastName)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:right">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.DateOfBirth):
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field" id="DateOfBirth">
+                        @Html.EditorFor(model => model.DateOfBirth)
+                        @Html.ValidationMessageFor(model => model.DateOfBirth)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:right">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.PhoneNumber):
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.PhoneNumber)
+                        @Html.ValidationMessageFor(model => model.PhoneNumber)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:right">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Deposit):
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Deposit)
+                        @Html.ValidationMessageFor(model => model.Deposit)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:right">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.StatusID, "ClientStatus"):
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.DropDownList("StatusID", String.Empty)
+                        @Html.ValidationMessageFor(model => model.StatusID)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    @Html.HiddenFor(model => model.Id)
+                    <p>
+                        <input type="submit" value="Save" />
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-        <script type="text/javascript">
+            <div>
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+            <script type="text/javascript">
                 $(document).ready(function () {
                     $("input[type=text]").jqxInput({ width: '200px', height: '25px' });
                     $("input[type=password]").jqxInput({ width: '200px', height: '25px' });
@@ -126,4 +128,4 @@
                     $("select").jqxInput({ height: '25px', width: '200px' });
                     $("#DateOfBirth").jqxDateTimeInput({ width: '200px', height: '25px' });
                 });
-        </script>
+            </script>

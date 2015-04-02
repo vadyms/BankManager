@@ -76,5 +76,21 @@ namespace BankManager.Controllers
             Client client = _clientService.FindById(id);
             return View(client);
         }
+
+        //
+        // POST: /DBGrid/Edit/5
+
+        [HttpPost]
+        public ActionResult Edit(Client client)
+        {
+            //if (ModelState.IsValid)
+            //{
+            //    db.Entry(client).State = EntityState.Modified;
+            //    db.SaveChanges();
+                return RedirectToAction("Index");
+                //}
+                //ViewBag.StatusID = new SelectList(.ClientStatuses, "ID", "StatusName", client.StatusID);
+                //return View(client);
+        }
     }
 }

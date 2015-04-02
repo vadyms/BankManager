@@ -44,5 +44,11 @@ namespace BankManager.BankData
         {
             throw new NotImplementedException();
         }
+
+
+        public int Update(User t)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

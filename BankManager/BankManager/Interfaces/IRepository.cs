@@ -10,5 +10,6 @@ namespace BankManager.Interfaces
         int Create( T t );
         IEnumerable<T> FindAll();
         T FindById( int id );
+        int Update( T t );
     }
 }
