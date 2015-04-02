@@ -44,5 +44,37 @@ namespace BankManager.Controllers
             ViewBag.StatusID = new SelectList( _statusService.FindAll(), "Id", "StatusName", client.StatusID );
             return View( client );
         }
+        
+        //
+        // GET: /DBGrid/Details/5
+
+        public ViewResult Details(int id)
+        {
+            var clients = _clientService.FindAll();
+            Client client = clients.FirstOrDefault(u => u.Id == id);
+            return View(client);
+        }
+
+        //
+        // GET: /DBGrid/Edit/5
+
+        public ActionResult Edit(int id)
+        {
+            var clients = _clientService.FindAll();
+            Client client = clients.FirstOrDefault(u => u.Id == id);
+            //ClientStatus status = _statusService.FindById(client.StatusID);
+            //ViewBag.StatusID = status.StatusName;
+            ViewBag.StatusID = new SelectList(_statusService.FindAll(), "ID", "StatusName", client.StatusID);
+            return View(client);
+        }
+
+        //
+        // GET: /DBGrid/Delete/5
+
+        public ActionResult Delete(int id)
+        {
+            Client client = _clientService.FindById(id);
+            return View(client);
+        }
     }
 }

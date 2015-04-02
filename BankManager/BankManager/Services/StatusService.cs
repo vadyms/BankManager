@@ -26,7 +26,7 @@ namespace BankManager.Models
 
         public ClientStatus FindById( int id )
         {
-            throw new NotImplementedException();
+            return _iStatusRepository.FindById(id);
         }
 
         public void SendMail()

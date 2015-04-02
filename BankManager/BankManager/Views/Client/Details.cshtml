@@ -1,0 +1,96 @@
+﻿@model BankManager.Client
+
+@{
+    ViewBag.Title = "Details";
+}
+<p>
+    <img src="../../Content/Images/edit.gif" />
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id })
+</p>
+<fieldset>
+    <legend>Client details</legend>
+<table>
+    <tr>
+        <td>
+            <div class="display-label">Client Contact Number:</div>
+        </td>
+        <td>
+            <div class="display-field">
+            @Html.DisplayFor(model => model.ClientContactNumber)
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+    <div class="display-label">FirstName</div>
+        </td>
+        <td>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+
+    <div class="display-label">LastName</div>
+        </td>
+        <td>    
+            <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+
+    <div class="display-label">DateOfBirth</div>
+        </td>
+        <td>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateOfBirth)
+    </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+
+    <div class="display-label">PhoneNumber</div>
+        </td>
+        <td>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PhoneNumber)
+    </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+
+    <div class="display-label">Deposit</div>
+        </td>
+        <td>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Deposit)
+    </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+    <div class="display-label">ClientStatus</div>
+        </td>
+        <td>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ClientStatus.StatusName)
+    </div>
+        </td>
+    </tr>
+</table>
+</fieldset>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

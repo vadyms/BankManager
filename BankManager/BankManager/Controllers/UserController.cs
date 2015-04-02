@@ -50,7 +50,7 @@ namespace BankManager.Controllers
                 if (IsValid( user.Login, user.Password ))
                 {
                     FormsAuthentication.SetAuthCookie( user.Login, false );
-                    return RedirectToAction( "Index", "DBGrid" );
+                    return RedirectToAction( "Index", "Client" );
                 }
                 else
                 {

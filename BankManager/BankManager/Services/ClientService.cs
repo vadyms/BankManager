@@ -27,7 +27,6 @@ namespace BankManager.Models
         public Client FindById( int id )
         {
             return _iClientRepository.FindById( id );
-            throw new NotImplementedException();
         }
 
         public void SendMail()
