@@ -33,16 +33,25 @@ namespace BankManager.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create( Client client )
+        public ActionResult Create( BankManager.Models.ClientModel clientModel )
         {
+            Client client = new Client();
             if (ModelState.IsValid)
             {
+                client.Id = clientModel.Id;
+                client.FirstName = clientModel.FirstName;
+                client.LastName = clientModel.LastName;
+                client.ClientContactNumber = clientModel.ClientContactNumber;
+                client.StatusID = clientModel.StatusID;
+                client.DateOfBirth = clientModel.DateOfBirth;
+                client.PhoneNumber = clientModel.PhoneNumber;
+                client.Deposit = clientModel.Deposit;
                 _clientService.Create( client );
                 return RedirectToAction( "Index" );
             }
 
             ViewBag.StatusID = new SelectList( _statusService.FindAll(), "Id", "StatusName", client.StatusID );
-            return View( client );
+            return View(clientModel);
         }
         
         //
@@ -81,16 +90,23 @@ namespace BankManager.Controllers
         // POST: /DBGrid/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Client client)
+        public ActionResult Edit(BankManager.Models.ClientModel clientModel)
         {
-            //if (ModelState.IsValid)
-            //{
-            //    db.Entry(client).State = EntityState.Modified;
-            //    db.SaveChanges();
+            Client client=new Client();
+            if (ModelState.IsValid)
+            {
+                client.Id = clientModel.Id;
+                client.FirstName = clientModel.FirstName;
+                client.LastName = clientModel.LastName;
+                client.ClientContactNumber = clientModel.ClientContactNumber;
+                client.StatusID = clientModel.StatusID;
+                client.DateOfBirth = clientModel.DateOfBirth;
+                client.PhoneNumber = clientModel.PhoneNumber;
+                client.Deposit = clientModel.Deposit;
+                _clientService.Update(client);
                 return RedirectToAction("Index");
-                //}
-                //ViewBag.StatusID = new SelectList(.ClientStatuses, "ID", "StatusName", client.StatusID);
-                //return View(client);
+            }
+            return View(clientModel);
         }
     }
 }

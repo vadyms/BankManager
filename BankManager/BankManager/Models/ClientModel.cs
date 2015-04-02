@@ -7,6 +7,7 @@ namespace BankManager.Models
 {
     public class ClientModel
     {
+        public int Id { get; set; }
         public int ClientContactNumber { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

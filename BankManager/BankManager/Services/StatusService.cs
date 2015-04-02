@@ -38,5 +38,11 @@ namespace BankManager.Models
         {
             throw new NotImplementedException();
         }
+
+
+        public int Update(ClientStatus t)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

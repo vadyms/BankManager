@@ -15,7 +15,7 @@ namespace BankManager.Services
         }
         public int Create(User user)
         {
-            return _iUserRepository.Create(user); ;
+            return _iUserRepository.Create(user);
         }
 
         public IEnumerable<User> FindAll()
@@ -34,6 +34,12 @@ namespace BankManager.Services
         }
 
         public void CalculateTotalProfit()
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public int Update(User t)
         {
             throw new NotImplementedException();
         }

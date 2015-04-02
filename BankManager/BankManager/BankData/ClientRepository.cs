@@ -23,6 +23,18 @@ namespace BankManager.Models
             }
             return 0;
         }
+
+        public int Update(Client client)
+        {
+            if (client != null)
+            {
+                dbContext.Entry(client).State = EntityState.Modified;
+                dbContext.SaveChanges();
+                return 1;
+            }
+            return 0;
+        }
+
         public IEnumerable<ClientStatus> FindAllStatus()
         {
             return dbContext.ClientStatuses.ToList();
@@ -43,30 +55,41 @@ namespace BankManager.Models
             return dbContext.ClientStatuses.ToList();
         }
 
-        int IRepository<Client>.Create(Client t)
+        ClientStatus IRepository<ClientStatus>.FindById(int id)
+        {
+            return dbContext.ClientStatuses.Find( id );
+        }
+
+
+        Client IRepository<Client>.FindById(int id)
+        {
+            return dbContext.Clients.Find(id);
+        }
+
+
+        public int Update(ClientStatus t)
         {
             throw new NotImplementedException();
+        }
+
+        int IRepository<Client>.Create(Client t)
+        {
+            return Create(t);
         }
 
         int IRepository<Client>.Update(Client t)
         {
-            throw new NotImplementedException();
+            return Update(t);
         }
 
-        int IRepository<ClientStatus>.Create(ClientStatus t)
+        IEnumerable<Client> IRepository<Client>.FindAll()
         {
-            throw new NotImplementedException();
+            return FindAll();
         }
 
-        int IRepository<ClientStatus>.Update(ClientStatus t)
+        public int Create(ClientStatus t)
         {
-            throw new NotImplementedException();
-        }
-
-
-        ClientStatus IRepository<ClientStatus>.FindById(int id)
-        {
-            throw new NotImplementedException();
+            return Create(t);
         }
     }
 }

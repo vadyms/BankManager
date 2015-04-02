@@ -43,5 +43,11 @@ namespace BankManager.Models
         {
             throw new NotImplementedException();
         }
+
+
+        public int Update(Client client)
+        {
+            return _iClientRepository.Update(client);
+        }
     }
 }
