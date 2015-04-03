@@ -29,11 +29,6 @@ namespace BankManager.Models
             return _iStatusRepository.FindById(id);
         }
 
-        public void SendMail()
-        {
-            throw new NotImplementedException();
-        }
-
         public void CalculateTotalProfit()
         {
             throw new NotImplementedException();

@@ -11,7 +11,5 @@ namespace BankManager.Interfaces
         int Update(T t);
         IEnumerable<T> FindAll();
         T FindById( int id );
-        void SendMail();
-        void CalculateTotalProfit();
     }
 }

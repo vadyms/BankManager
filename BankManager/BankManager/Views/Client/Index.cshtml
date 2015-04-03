@@ -8,9 +8,40 @@
         <img src="../../Content/Images/edit.gif" />
         @Html.ActionLink("Create New", "../Client/Create")
     </p>
+
+    <script type="text/javascript">
+        function PrintElem(elem)
+        {
+            Popup($(elem).html());
+        }
+
+        function Popup(data)
+        {
+            var mywindow = window.open('', 'jqxgrid', 'height=400,width=600');
+            mywindow.document.write('<html><head><title>jqxgrid</title>');
+            mywindow.document.write('<link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />');
+            mywindow.document.write('</head><body >');
+            mywindow.document.write(data);
+            mywindow.document.write('</body></html>');
+
+            mywindow.document.close(); // necessary for IE >= 10
+            mywindow.focus(); // necessary for IE >= 10
+
+            mywindow.print();
+            mywindow.close();
+
+            return true;
+        }
+
+    </script>
+
     <p>
+        <!--
         <img src="../../Content/Images/print.png" />
-        @Html.ActionLink("Print", "../Home")
+         @Html.ActionLink("Print", "Print")
+        <a onclick="PrintElem('#jqxgrid')"><img src="../../Content/Images/print.png" /></a>
+        -->
+        <a href="javascript:window.print()"><img src="../../Content/Images/print.png" /></a>
     </p>
 
     <link href="@Url.Content("~/Content/themes/base/TableSky.css")" rel="stylesheet" type="text/css" />

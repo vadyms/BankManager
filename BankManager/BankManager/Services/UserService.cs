@@ -33,12 +33,6 @@ namespace BankManager.Services
             throw new NotImplementedException();
         }
 
-        public void CalculateTotalProfit()
-        {
-            throw new NotImplementedException();
-        }
-
-
         public int Update(User t)
         {
             throw new NotImplementedException();

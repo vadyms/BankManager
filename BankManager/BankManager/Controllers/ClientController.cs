@@ -14,6 +14,7 @@ namespace BankManager.Controllers
         // GET: /Client/
         private readonly IService<Client> _clientService=null;
         private readonly IService<ClientStatus> _statusService = null;
+        readonly log4net.ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public ActionResult Index()
         {
@@ -53,6 +54,14 @@ namespace BankManager.Controllers
             ViewBag.StatusID = new SelectList( _statusService.FindAll(), "Id", "StatusName", client.StatusID );
             return View(clientModel);
         }
+
+        // print table content
+        public ActionResult Print()
+        {
+            logger.Debug("Print html context for clients");
+
+            return View();
+        }
         
         //
         // GET: /DBGrid/Details/5
@@ -71,8 +80,6 @@ namespace BankManager.Controllers
         {
             var clients = _clientService.FindAll();
             Client client = clients.FirstOrDefault(u => u.Id == id);
-            //ClientStatus status = _statusService.FindById(client.StatusID);
-            //ViewBag.StatusID = status.StatusName;
             ViewBag.StatusID = new SelectList(_statusService.FindAll(), "ID", "StatusName", client.StatusID);
             return View(client);
         }

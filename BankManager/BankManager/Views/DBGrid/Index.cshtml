@@ -4,6 +4,29 @@
     ViewBag.Title = "Index";
 }
 
+<head>
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="@Url.Content("~/Scripts/jqwidgets/styles/jqx.base.css")" type="text/css" />
+    <link rel="stylesheet" href="@Url.Content("~/Scripts/jqwidgets/styles/jqx.energyblue.css")" type="text/css" />
+
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqwidgets/jqxcore.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqwidgets/jqxdatetimeinput.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqwidgets/jqxcalendar.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqwidgets/jqxtooltip.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqwidgets/jqxbuttons.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqwidgets/jqxscrollbar.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqwidgets/jqxlistbox.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqwidgets/jqxcombobox.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqwidgets/jqxinput.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqwidgets/jqxcheckbox.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqwidgets/jqxdata.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqwidgets/jqxgrid.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqwidgets/jqxgrid.selection.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqwidgets/jqxgrid.filter.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqwidgets/jqx-all.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqwidgets/jqxwindow.js")"></script>
+</head>
+
 <p>
     <img src="../../Content/Images/edit.gif" />
     @Html.ActionLink("Create New", "Create")
@@ -143,3 +166,15 @@
 
 <div id="grid"></div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("input").jqxInput({ theme: 'energyblue' });
+        $("input[type=password]").jqxInput({ theme: 'energyblue' });
+        $("input[type=submit]").jqxButton({ theme: 'energyblue' });
+        $("input[type=checkbox]").jqxInput();
+        $("select").jqxInput({ theme: 'energyblue' });
+        $("#DateOfBirth").jqxDateTimeInput({ theme: 'energyblue' });
+        $("#jqxcheckbox").jqxCheckBox({ width: 120, height: 25, theme: 'shinyblack' });
+    });
+</script>

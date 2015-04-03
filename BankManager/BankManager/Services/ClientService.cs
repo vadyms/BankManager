@@ -29,16 +29,6 @@ namespace BankManager.Models
             return _iClientRepository.FindById( id );
         }
 
-        public void SendMail()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void CalculateTotalProfit()
-        {
-            throw new NotImplementedException();
-        }
-
         public int Create( ClientStatus t )
         {
             throw new NotImplementedException();
