@@ -844,3 +844,10 @@ INFO  2015-04-03 15:45:39,038   217ms MvcApplication         Application_Start  
 INFO  2015-04-03 15:52:19,462   343ms MvcApplication         Application_Start  - Logger started.
 INFO  2015-04-03 16:01:57,987   182ms MvcApplication         Application_Start  - Logger started.
 INFO  2015-04-03 16:04:53,279   187ms MvcApplication         Application_Start  - Logger started.
+INFO  2015-04-06 10:33:31,303  3992ms MvcApplication         Application_Start  - Logger started.
+DEBUG 2015-04-06 10:34:16,769 49458ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-04-06 10:34:16,776 49466ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-04-06 10:34:17,647 50337ms DBGridController       Dispose            - db.Dispose()
+DEBUG 2015-04-06 10:34:17,647 50337ms DBGridController       Dispose            - db.Dispose()
+INFO  2015-04-06 11:14:25,665  2710ms MvcApplication         Application_Start  - Logger started.
+INFO  2015-04-06 11:19:05,507   559ms MvcApplication         Application_Start  - Logger started.

@@ -19,7 +19,6 @@ namespace BankManager.Controllers
         public ActionResult Index()
         {
             var clients = _clientService.FindAll();
-            
             return View( clients );
         }
         public ClientController(IService<Client> clientService, IService<ClientStatus> statusService)
