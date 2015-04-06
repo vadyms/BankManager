@@ -8,6 +8,9 @@ using BankManager;
 using BankManager.Models;
 using BankManager.Controllers;
 using BankManager.Interfaces;
+using OpenQA.Selenium;
+using OpenQA.Selenium.IE;
+using OpenQA.Selenium.Support.UI;
 
 namespace UnitTests
 {
@@ -38,6 +41,10 @@ namespace UnitTests
         [TestMethod]
         public void ClientControllerTest()
         {
+            //IWebDriver driver = new InternetExplorerDriver(@"C:\WebDriverSrv");
+            IWebDriver driver = new InternetExplorerDriver();
+            string sUrl = "http://google.com";
+            driver.Navigate().GoToUrl(sUrl);
             //ClientController clientCrtl = new ClientController(_clientService,_statusService);
             //Assert.AreNotEqual(clientCrtl, null);
 
@@ -50,3 +57,4 @@ namespace UnitTests
         }
     }
 }
+

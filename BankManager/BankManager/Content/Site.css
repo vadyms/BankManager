@@ -172,13 +172,71 @@ table.login {
     border-style: none !important;
 }
 
-
+input[type="submit"] {
+	-webkit-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+	-moz-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+	box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+	border-bottom-color:#333;
+	border:1px solid #61c4ea;
+	background-color:#7cceee;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	color:#333;
+	font-family:'Verdana',Arial,sans-serif;
+	font-size:14px;
+	text-shadow:#b2e2f5 0 1px 0;
+	padding:5px;
+    width: 150px;
+}
 input[type="button"]
 {
+    /*
     background: transparent;
     color:none;
+    */
+    font-style: normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-appearance: none;
+    padding: 0px;
+    outline: none;
+    border-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;    
+    font-size: 10px;
 }
 
 td {
     text-align:left;
 }
+.jqx-input
+{
+    -webkit-appearance: none;
+    padding: 0 0 0 0;
+    outline: none;
+    border-width: 1px;
+    border-style: solid; 
+    -moz-background-clip: padding; background-clip: padding-box; -webkit-background-clip: padding-box;
+    width: 250px; 
+}
+input[type=text].jqx-input, input[type=password].jqx-input {
+    min-height: 16px;
+    min-width: 16px;
+    margin: 0px;
+    border-width: 1px;
+    border-style: solid;
+    font-size: 13px;
+    padding: 0px;
+}
+input[type="text"],input[type="number"],input[type="password"],select { 
+    background: white; 
+    border: 1px double #DDD; 
+    border-radius: 2px; 
+    box-shadow: 0 0 2px #333; 
+    color: #666; 
+    outline: none; 
+    height:25px; 
+    width: 250px; 
+  }
