@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
 using BankManager.BankData;
+using BankManager.Dummies;
 using BankManager.Interfaces;
 using BankManager.Models;
 using BankManager.Services;
@@ -50,6 +51,7 @@ namespace BankManager
             builder.RegisterType( typeof(ClientRepository)).AsImplementedInterfaces();
             builder.RegisterType(typeof(UserService)).AsImplementedInterfaces();
             builder.RegisterType(typeof(UserRepository)).AsImplementedInterfaces();
+            builder.RegisterType(typeof(UserDummyRepository)).AsImplementedInterfaces();
             builder.RegisterType( typeof(StatusService)).AsImplementedInterfaces();
             builder.RegisterType( typeof(StatusRepository)).AsImplementedInterfaces();
             
