@@ -13,6 +13,7 @@ using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Support.UI;
 using BankManager.Abstract;
 using BankManager.BankData;
+using System.Web.Mvc;
 
 namespace UnitTests
 {
@@ -54,6 +55,7 @@ namespace UnitTests
             UserController controller = new UserController(mock.Object);
             var result = controller.Index(); ;
 
+
             //ClientController clientCrtl = new ClientController(_clientService,_statusService);
             //Assert.AreNotEqual(clientCrtl, null);
 
@@ -68,6 +70,15 @@ namespace UnitTests
             ClientService clServices = new ClientService(_iClientRepository);
             Assert.AreNotEqual(clServices, null);
         }
+        
+        [TestMethod]
+        public void IndexTestMethod() {
+            ClientController clientCrtl = new ClientController(_clientService,_statusService);
+            MvcApplication mvc = new MvcApplication();
+            
+            Assert.IsNotNull(clientCrtl.Index());
+        }
+             
     }
 }
 
