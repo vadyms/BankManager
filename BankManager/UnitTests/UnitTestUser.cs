@@ -49,7 +49,7 @@ namespace UnitTests
             //userRepository = new UserRepository(context);
 
             // Lets create our dummy repository
-            usersRepo = new UserDummyRepository(users);
+            //usersRepo = new UserDummyRepository(users);
         }
 
 
