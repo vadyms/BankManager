@@ -26,7 +26,7 @@ namespace UnitTests
     {
         private readonly IService<User> _userService = null;
         private IDependencyResolver _originalResolver = null;
-
+        
         private Mock<IService<User>> _mockRepo;
         private UserController userController;
 
@@ -77,7 +77,7 @@ namespace UnitTests
                 //DependencyResolver.SetResolver(new AutofacDependencyResolver(container)); //does not work in unit test
             }
             catch
-            {
+                {
                 Console.WriteLine("Can't resolve dependency.");
             }
 
