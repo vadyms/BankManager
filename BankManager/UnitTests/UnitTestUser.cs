@@ -87,12 +87,8 @@ namespace UnitTests
             userController = new UserController(_mockRepo.Object);
             //_mockRepo.Setup(mr => mr.FindAll()).Returns(new ValidObject());
 
-            userController = new UserController(_userService);
-            UserModel user = new UserModel();
-            user.Login = "1";
-            user.Password = "1";
-            userController.LogIn(user);
-            var ss = userController.Index() as ViewResult;
+            // Lets create our dummy repository
+            usersRepo = new UserDummyRepository(users);
         }
 
 
